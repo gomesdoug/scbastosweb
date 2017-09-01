@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name="imovel")
 public class Imovel implements Serializable{
@@ -20,20 +25,24 @@ public class Imovel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	// ATRIBUTOS ----------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idImovel;
 	
+	@NotBlank(message = "O código SC é obrigatório.")
 	private Long codigocs;
 	private int garagem;
+	
+	@Column(name="idade_imovel")
 	private int idadeImovel;
 	
 	private String matricula;
+	
+	@Column(name="insc_imob")
 	private String inscricaoImobiliaria;
-	private String destinacao;
-	private String situacao;
-	private String classificacao;
-	private String conservacao;
+	
 	private String foto;
 	private String corretor;
 	private String opcionista;
@@ -41,9 +50,14 @@ public class Imovel implements Serializable{
 	private boolean ativo;
 	private boolean exclusividade;
 	
+	@NotBlank(message = "A data de captação é obrigatória.")
+	@Column(name="data_captacao")
 	private Date dataCaptacao;
+	
+	@Column(name="data_cadastro")
 	private Date dataCadastro;
 	
+	@Column(name="area_total")
 	private BigDecimal areaTotal;
 	
 	@ManyToOne
@@ -58,7 +72,25 @@ public class Imovel implements Serializable{
 	@JoinColumn (name ="Endereco_idEndereco")
 	private Endereco endereco;
 	
-	//GETTERS AND SETTERS
+	//ENUMERATORS ----------------------
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="tipo_imovel")
+	private TipoImovel tipoImovel;
+	
+	@Enumerated(EnumType.STRING)
+	private Destinacao destinacao;
+	
+	@Enumerated(EnumType.STRING)
+	private Conservacao conservacao;
+	
+	@Enumerated(EnumType.STRING)
+	private Classificacao classificacao;
+	
+	@Enumerated(EnumType.STRING)
+	private Situacao situacao;
+	
+	//GETTERS AND SETTERS ----------------------
 	
 	public Long getIdImovel() {
 		return idImovel;
@@ -96,30 +128,7 @@ public class Imovel implements Serializable{
 	public void setInscricaoImobiliaria(String inscricaoImobiliaria) {
 		this.inscricaoImobiliaria = inscricaoImobiliaria;
 	}
-	public String getDestinacao() {
-		return destinacao;
-	}
-	public void setDestinacao(String destinacao) {
-		this.destinacao = destinacao;
-	}
-	public String getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
-	public String getClassificacao() {
-		return classificacao;
-	}
-	public void setClassificacao(String classificacao) {
-		this.classificacao = classificacao;
-	}
-	public String getConservacao() {
-		return conservacao;
-	}
-	public void setConservacao(String conservacao) {
-		this.conservacao = conservacao;
-	}
+
 	public String getFoto() {
 		return foto;
 	}
@@ -187,7 +196,7 @@ public class Imovel implements Serializable{
 		this.endereco = endereco;
 	}
 	
-	//HASHCODE AND EQUALS
+	//HASHCODE AND EQUALS ----------------------
 	
 	@Override
 	public int hashCode() {
