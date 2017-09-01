@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'">
+	
+<head>
+
+	<title>Cadastro do Imóvel</title>
+
+</head>
+
+<body>
+	
+<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>
+					Cadastro do Imóvel
+				</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+			</div> -->
+
+			<form method="POST" th:object="${imovel}" class="form-vertical  js-form-loading">
+			
+			<div  class="well well-small">			
+				<div class="row">
+					<div class= "col-sm-6 form-group">
+						<label for="proprietario">Proprietário</label>
+						<div class="sc-field-action">
+							<select id="proprietario" class="form-control">
+								<option value="">Selecione o proprietario</option>
+							</select>
+							
+							<div class="sc-field-action-icon">
+								<a href="#" data-toggle="modal" data-target="#modalProprietario">
+									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i>
+								</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			
+				
+				<div class="row">	
+					<div class= "col-sm-6 form-group">
+						<label for="Endereco">Endereco do imóvel</label>
+						<div class="sc-field-action">
+							<select id="endereco" class="form-control">
+								<option value="">Selecione o endereço</option>
+							</select>
+							
+							<div class="sc-field-action-icon">
+								<a href="#" data-toggle="modal" data-target="#modalEndereco">
+									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i>
+								</a>
+							</div>
+							
+						</div>	
+					</div>
+				</div>
+			</div>
+		
+		<hr class="divider"/><!-- Atributos do imóvel -->
+		
+			<h4>Atributos do imóvel</h4>
+		
+			<div  class="well well-small">
+				<div class="row">
+									
+					<div class="col-sm-2  form-group">
+						<label for="codigosc">Código SC</label>
+						<div class="input-group">
+							<div class="input-group-addon">sc</div>
+							<input id="codigosc" type="text" class="form-control js-inteiro"/>
+						</div>
+					</div>
+					
+					<div class="col-sm-2  form-group">
+						<label for="tipo_imovel">Tipo do imóvel</label>
+						<select id="tipo_imovel" class="form-control">
+							<option value="">Selecione</option>
+						</select>
+					</div>
+					
+					<div class="col-sm-2  form-group">
+						<label for="classificacao">Classificacao</label>
+						<select id="classificacao" class="form-control">
+							<option value="">Selecione</option>
+						</select>
+					</div>
+					
+				</div>
+	
+				<div class="row">
+				
+					<div class= "col-sm-2 form-group">
+						<label for="matricula">Matrícula</label>
+						<input id="matricula" type="text" class="form-control"></input>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="inscricao">Inscrição imobiliária</label>
+						<input id="inscricao" type="text" class="form-control"></input>
+					</div>
+				
+					<div class= "col-sm-2 form-group">
+						<label for="data_captacao">Data de Captação</label>
+						<input id="data_captacao" type="text" class="form-control"></input>
+					</div>
+					
+				</div>	
+				
+				<div class="row">
+				
+					<div class= "col-sm-2 form-group">
+						<label for="idade_imovel">idade do imóvel</label>
+						<div class="input-group">
+							<input id="idade_imovel" type="text" class="form-control js-inteiro"></input>
+							<div class="input-group-addon">anos</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-2  form-group">
+						<label for="destinacao">Destinação</label>
+						<select id="destinacao" class="form-control">
+							<option value="">Selecione</option>
+						</select>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="area_total">Área total</label>
+						<div class="input-group">
+							<input id="area_total" type="text" class="form-control js-decimal"></input>
+							<div class="input-group-addon">M²</div>
+						</div>
+					</div>
+				
+				</div>	
+				
+				<div class="row">
+				
+					<div class="col-sm-2  form-group">
+						<label for="situacao">Situação</label>
+						<select id="situacao" class="form-control">
+							<option value="">Selecione</option>
+						</select>
+					</div>
+					
+					<div class="col-sm-2  form-group">
+						<label for="conservacao">Conservação</label>
+						<select id="conservacao" class="form-control">
+							<option value="">Selecione</option>
+						</select>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="garagem">Garagem</label>
+						<div class="input-group">
+							<input id="garagem" type="text" class="form-control js-inteiro"></input>
+							<div class="input-group-addon">vagas</div>
+						</div>
+					</div>	
+				</div>		
+			</div>	
+			
+			<hr class="divider"/> <!-- VALORES DO IMOVEL -->
+			
+			<h4>Valores do imóvel</h4>
+			
+			<div  class="well well-small">
+			
+				<div class="row">
+				
+					<div class= "col-sm-6 form-group">
+						<label for="organizacaoFinanceira">Organização Financeira</label>
+						<input id="organizacaoFinanceira" type="text" class="form-control"></input>
+					</div>
+				
+				</div>
+			
+				<div class="row">
+				
+					<div class= "col-sm-2 form-group">
+						<label for="valorimovel">Valor do imóvel</label>
+							<div class="input-group">
+								<div class="input-group-addon">R$</div>
+								<input id="valorimovel" type="text" class="form-control js-decimal"></input>
+							</div>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="sinal">Sinal</label>
+							<div class="input-group">
+								<div class="input-group-addon">R$</div>
+								<input id="sinal" type="text" class="form-control js-decimal"></input>
+							</div>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="prazo">Prazo Financiamento</label>
+							<div class="input-group">
+								<input id="prazo" type="text" class="form-control js-inteiro"></input>
+								<div class="input-group-addon">anos</div>
+							</div>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+				
+					<div class= "col-sm-2 form-group">
+						<label for="saldoDevedor">Saldo devedor</label>
+							<div class="input-group">
+								<div class="input-group-addon">R$</div>
+								<input id="saldoDevedor" type="text" class="form-control js-decimal"></input>
+							</div>
+					</div>
+					
+					<div class="col-lg-3  col-sm-6  form-group">
+						<label for="quitado">Quitado?</label>
+						<div>
+							<div class="radio  radio-inline">
+								<input type="radio" name="quitado"> 
+								<label>sim</label>
+							</div>
+							<div class="radio  radio-inline">
+								<input type="radio" name="quitado"> 
+								<label>não</label>
+							</div>
+						</div>
+					</div>
+				
+				
+				
+				</div>
+			</div>
+			
+			
+				
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+				</div>
+		
+			</form>
+		</div>
+		
+		<div th:replace="modal/modalProprietario :: modalProprietario"></div>
+		<div th:replace="modal/modalEndereco :: modalEndereco"></div>
+	</section>
+
+</body>
+</html>

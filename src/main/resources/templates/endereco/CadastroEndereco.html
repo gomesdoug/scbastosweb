@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'">
+<head>
+
+<title>Cadastro de Proprietário</title>
+
+</head>
+
+<body>
+	
+<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>
+					Cadastro de Endereço do Imóvel.
+				</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+			</div> -->
+
+			<form method="POST" th:object="${endereco}" class="form-vertical  js-form-loading">
+		
+				<div class="row">
+									
+					<div class="col-sm-6  form-group">
+						<label for="nome">Logradouro</label>
+						<input id="nome" type="text" class="form-control"/>
+					</div>
+				</div>
+	
+				<div class="row">
+				
+					<div class= "col-sm-2 form-group">
+						<label for="descricao">Número do imóvel</label>
+						<input id="cpf_prop" type="text" class="form-control"></input>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="descricao">CEP</label>
+						<input id="cpf_prop" type="text" class="form-control"></input>
+					</div>
+					
+				</div>	
+					
+				<div class="row">	
+					<div class= "col-sm-2 form-group">
+						<label for="descricao">Bairro</label>
+						<input id="tel_1" type="text" class="form-control"></input>
+					</div>
+					
+					<div class= "col-sm-2 form-group">
+						<label for="descricao">Município</label>
+						<input id="tel_2" type="text" class="form-control"></input>
+					</div>
+					
+				</div>
+				
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+				</div>
+		
+			</form>
+		</div>
+		
+	</section>
+
+</body>
+</html>

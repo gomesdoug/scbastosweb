@@ -1,0 +1,27 @@
+
+
+/*
+######################
+# UTILIDADES
+######################
+*/
+.sc-glyphicon-large {
+	font-size: 18px;
+}
+
+
+/*
+######################
+# COMPONENTES
+######################
+*/
+
+/* Field Action */
+.sc-field-action {
+	display: flex;
+}
+
+.sc-field-action-icon {
+	margin: 6px 0 0 5px;
+}
+
