@@ -88,14 +88,14 @@
 					<div class="col-sm-2  form-group">
 						<label for="tipo_imovel">Tipo do imóvel</label>
 						<select id="tipo_imovel" class="form-control">
-							<option value="">Selecione</option>
+							<option th:each="tipoImovel : ${tipoImoveis}" th:value="${tipoImovel}" th:text="${tipoImovel.descricao}"></option>
 						</select>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="classificacao">Classificacao</label>
 						<select id="classificacao" class="form-control">
-							<option value="">Selecione</option>
+							<option th:each="classificacao : ${classificacoes}" th:value="${classificacao}" th:text="${classificacao.classificacao}"></option>
 						</select>
 					</div>
 					
@@ -133,7 +133,7 @@
 					<div class="col-sm-2  form-group">
 						<label for="destinacao">Destinação</label>
 						<select id="destinacao" class="form-control">
-							<option value="">Selecione</option>
+							<option th:each="destinacao : ${destinacoes}" th:value="${destinacao}" th:text="${destinacao.destinacao}"></option>
 						</select>
 					</div>
 					
