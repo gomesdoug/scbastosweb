@@ -17,6 +17,7 @@ public class Municipio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id_municipio")
 	private Long idMunicipio;
 	
 	@Column(name = "nome_municipio")
@@ -34,19 +35,19 @@ public class Municipio implements Serializable {
 	public void setIdMunicipio(Long idMunicipio) {
 		this.idMunicipio = idMunicipio;
 	}
-	public String getNome_municipio() {
+	public String getNomeMunicipio() {
 		return NomeMunicipio;
 	}
-	public void setNome_municipio(String nome_municipio) {
-		this.NomeMunicipio = nome_municipio;
+	public void setNomeMunicipio(String nomeMunicipio) {
+		NomeMunicipio = nomeMunicipio;
 	}
-	
 	public List<Bairro> getBairro() {
 		return bairro;
 	}
 	public void setBairro(List<Bairro> bairro) {
 		this.bairro = bairro;
 	}
+	
 	
 	//HASHCODE AND EQUALS
 	

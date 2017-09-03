@@ -16,13 +16,14 @@ public class Bairro implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id_bairro")
 	private Long idBairro;
 	
 	@Column(name = "nome_bairro")
 	private String nomeBairro;
 	
 	@ManyToOne
-	@JoinColumn(name = "Municipio_idMunicipio")
+	@JoinColumn(name = "Municipio_id_Municipio")
 	private Municipio municipio;
 
 	//GETTERS AND SETTERS

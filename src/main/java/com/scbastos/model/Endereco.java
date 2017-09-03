@@ -2,6 +2,7 @@ package com.scbastos.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Endereco implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id_endereco")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEndereco;
 	
@@ -27,7 +29,7 @@ public class Endereco implements Serializable{
 	private String numero;
 	
 	@ManyToOne
-	@JoinColumn(name = "Bairro_idBairro")
+	@JoinColumn(name = "bairro_id_bairro")
 	private Bairro bairro;
 	
 	// GETTERS AND SETTERS

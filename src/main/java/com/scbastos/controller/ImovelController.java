@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.scbastos.model.Classificacao;
-import com.scbastos.model.Conservacao;
-import com.scbastos.model.Destinacao;
+import com.scbastos.model.EnumClassificacao;
+import com.scbastos.model.EnumConservacao;
+import com.scbastos.model.EnumDestinacao;
 import com.scbastos.model.Imovel;
-import com.scbastos.model.Situacao;
-import com.scbastos.model.TipoImovel;
+import com.scbastos.model.EnumSituacao;
+import com.scbastos.model.EnumTipoImovel;
 
 @Controller
 public class ImovelController {
@@ -23,11 +23,11 @@ public class ImovelController {
 	@RequestMapping("/imovel/novo")
 	public ModelAndView novo(Imovel imovel){
 		ModelAndView mv = new ModelAndView("imovel/CadastroImovel");
-		mv.addObject("tipoImoveis", TipoImovel.values());
-		mv.addObject("destinacoes", Destinacao.values());
-		mv.addObject("conservacao", Conservacao.values());
-		mv.addObject("classificacoes", Classificacao.values());
-		mv.addObject("situacoes", Situacao.values());
+		mv.addObject("tipoImoveis", EnumTipoImovel.values());
+		mv.addObject("destinacoes", EnumDestinacao.values());
+		mv.addObject("conservacao", EnumConservacao.values());
+		mv.addObject("classificacoes", EnumClassificacao.values());
+		mv.addObject("situacoes", EnumSituacao.values());
 		return mv;
 
 	}

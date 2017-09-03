@@ -88,14 +88,14 @@
 					<div class="col-sm-2  form-group">
 						<label for="tipo_imovel">Tipo do imóvel</label>
 						<select id="tipo_imovel" class="form-control">
-							<option th:each="tipoImovel : ${tipoImoveis}" th:value="${tipoImovel}" th:text="${tipoImovel.descricao}"></option>
+							<option th:each="XtipoImovel : ${tipoImoveis}" th:value="${XtipoImovel}" th:text="${XtipoImovel.enum_tipoImovel}"></option>
 						</select>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="classificacao">Classificacao</label>
 						<select id="classificacao" class="form-control">
-							<option th:each="classificacao : ${classificacoes}" th:value="${classificacao}" th:text="${classificacao.classificacao}"></option>
+							<option th:each="Xclassificacao : ${classificacoes}" th:value="${Xclassificacao}" th:text="${Xclassificacao.enum_classificacao}"></option>
 						</select>
 					</div>
 					
@@ -133,7 +133,7 @@
 					<div class="col-sm-2  form-group">
 						<label for="destinacao">Destinação</label>
 						<select id="destinacao" class="form-control">
-							<option th:each="destinacao : ${destinacoes}" th:value="${destinacao}" th:text="${destinacao.destinacao}"></option>
+							<option th:each="Xdestinacao : ${destinacoes}" th:value="${Xdestinacao}" th:text="${Xdestinacao.getEnum_destinacao()}"></option>
 						</select>
 					</div>
 					
@@ -153,6 +153,7 @@
 						<label for="situacao">Situação</label>
 						<select id="situacao" class="form-control">
 							<option value="">Selecione</option>
+							<option th:each="Xsituacao : ${situacoes}" th:value="${Xsituacao}" th:text="${Xsituacao.getEnum_situacao()}"></option>
 						</select>
 					</div>
 					
@@ -160,6 +161,7 @@
 						<label for="conservacao">Conservação</label>
 						<select id="conservacao" class="form-control">
 							<option value="">Selecione</option>
+							<option th:each="Xconservacao : ${conservacao}" th:value="${Xconser}" th:text="${Xconservacao.getEnum_conservacao()}"></option>
 						</select>
 					</div>
 					

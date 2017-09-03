@@ -3,6 +3,7 @@ package com.scbastos.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Proprietario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id_proprietario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProprietario;
 	

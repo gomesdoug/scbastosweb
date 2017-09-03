@@ -28,6 +28,7 @@ public class Imovel implements Serializable{
 	// ATRIBUTOS ----------------------
 	
 	@Id
+	@Column(name="id_imovel")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idImovel;
 	
@@ -61,37 +62,40 @@ public class Imovel implements Serializable{
 	private BigDecimal areaTotal;
 	
 	@ManyToOne
-	@JoinColumn(name = "Usuario_idUsuario")
+	@JoinColumn(name = "Usuario_id_usuario")
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name ="Proprietario_idProprietario")
+	@JoinColumn(name ="Proprietario_id_proprietario")
 	private Proprietario proprietario;
 	
 	@OneToOne
-	@JoinColumn (name ="Endereco_idEndereco")
+	@JoinColumn (name ="Endereco_id_endereco")
 	private Endereco endereco;
+	
+	@OneToOne
+	@JoinColumn(name="valor_id_valor")
+	private Valor valor;
 	
 	//ENUMERATORS ----------------------
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="tipo_imovel")
-	private TipoImovel tipoImovel;
+	private EnumTipoImovel tipoImovel;
 	
 	@Enumerated(EnumType.STRING)
-	private Destinacao destinacao;
+	private EnumDestinacao destinacao;
 	
 	@Enumerated(EnumType.STRING)
-	private Conservacao conservacao;
+	private EnumConservacao conservacao;
 	
 	@Enumerated(EnumType.STRING)
-	private Classificacao classificacao;
+	private EnumClassificacao classificacao;
 	
 	@Enumerated(EnumType.STRING)
-	private Situacao situacao;
+	private EnumSituacao situacao;
 	
 	//GETTERS AND SETTERS ----------------------
-	
 	public Long getIdImovel() {
 		return idImovel;
 	}
@@ -128,7 +132,6 @@ public class Imovel implements Serializable{
 	public void setInscricaoImobiliaria(String inscricaoImobiliaria) {
 		this.inscricaoImobiliaria = inscricaoImobiliaria;
 	}
-
 	public String getFoto() {
 		return foto;
 	}
@@ -195,6 +198,42 @@ public class Imovel implements Serializable{
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	public Valor getValor() {
+		return valor;
+	}
+	public void setValor(Valor valor) {
+		this.valor = valor;
+	}
+	public EnumTipoImovel getTipoImovel() {
+		return tipoImovel;
+	}
+	public void setTipoImovel(EnumTipoImovel tipoImovel) {
+		this.tipoImovel = tipoImovel;
+	}
+	public EnumDestinacao getDestinacao() {
+		return destinacao;
+	}
+	public void setDestinacao(EnumDestinacao destinacao) {
+		this.destinacao = destinacao;
+	}
+	public EnumConservacao getConservacao() {
+		return conservacao;
+	}
+	public void setConservacao(EnumConservacao conservacao) {
+		this.conservacao = conservacao;
+	}
+	public EnumClassificacao getClassificacao() {
+		return classificacao;
+	}
+	public void setClassificacao(EnumClassificacao classificacao) {
+		this.classificacao = classificacao;
+	}
+	public EnumSituacao getSituacao() {
+		return situacao;
+	}
+	public void setSituacao(EnumSituacao situacao) {
+		this.situacao = situacao;
+	}
 	
 	//HASHCODE AND EQUALS ----------------------
 	
@@ -218,7 +257,6 @@ public class Imovel implements Serializable{
 			return false;
 		return true;
 	}
-	
 	
 	
 	
