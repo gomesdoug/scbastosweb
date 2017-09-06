@@ -13,8 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.scbastos.model.EnumClassificacao;
 import com.scbastos.model.EnumConservacao;
 import com.scbastos.model.EnumDestinacao;
+import com.scbastos.model.EnumExclusividadeImovel;
 import com.scbastos.model.Imovel;
 import com.scbastos.model.EnumSituacao;
+import com.scbastos.model.EnumStatusImovel;
 import com.scbastos.model.EnumTipoImovel;
 
 @Controller
@@ -28,6 +30,8 @@ public class ImovelController {
 		mv.addObject("conservacao", EnumConservacao.values());
 		mv.addObject("classificacoes", EnumClassificacao.values());
 		mv.addObject("situacoes", EnumSituacao.values());
+		mv.addObject("statusImovel",EnumStatusImovel.values());
+		mv.addObject("exclusividadeImovel",EnumExclusividadeImovel.values());
 		return mv;
 
 	}

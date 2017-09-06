@@ -31,50 +31,49 @@
 
 			<form method="POST" th:object="${imovel}" class="form-vertical  js-form-loading">
 			
-			<div  class="well well-small">			
-				<div class="row">
-					<div class= "col-sm-6 form-group">
-						<label for="proprietario">Proprietário</label>
-						<div class="sc-field-action">
-							<select id="proprietario" class="form-control">
-								<option value="">Selecione o proprietario</option>
-							</select>
+<!-- 			<div  class="well well-small">			 -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class= "col-sm-6 form-group"> -->
+<!-- 						<label for="proprietario">Proprietário</label> -->
+<!-- 						<div class="sc-field-action"> -->
+<!-- 							<select id="proprietario" class="form-control"> -->
+<!-- 								<option value="">Selecione o proprietario</option> -->
+<!-- 							</select> -->
 							
-							<div class="sc-field-action-icon">
-								<a href="#" data-toggle="modal" data-target="#modalProprietario">
-									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i>
-								</a>
-							</div>
+<!-- 							<div class="sc-field-action-icon"> -->
+<!-- 								<a href="#" data-toggle="modal" data-target="#modalProprietario"> -->
+<!-- 									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i> -->
+<!-- 								</a> -->
+<!-- 							</div> -->
 							
-						</div>
-					</div>
-				</div>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			
 				
-				<div class="row">	
-					<div class= "col-sm-6 form-group">
-						<label for="Endereco">Endereco do imóvel</label>
-						<div class="sc-field-action">
-							<select id="endereco" class="form-control">
-								<option value="">Selecione o endereço</option>
-							</select>
+<!-- 				<div class="row">	 -->
+<!-- 					<div class= "col-sm-6 form-group"> -->
+<!-- 						<label for="Endereco">Endereco do imóvel</label> -->
+<!-- 						<div class="sc-field-action"> -->
+<!-- 							<select id="endereco" class="form-control"> -->
+<!-- 								<option value="">Selecione o endereço</option> -->
+<!-- 							</select> -->
 							
-							<div class="sc-field-action-icon">
-								<a href="#" data-toggle="modal" data-target="#modalEndereco">
-									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i>
-								</a>
-							</div>
+<!-- 							<div class="sc-field-action-icon"> -->
+<!-- 								<a href="#" data-toggle="modal" data-target="#modalEndereco"> -->
+<!-- 									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i> -->
+<!-- 								</a> -->
+<!-- 							</div> -->
 							
-						</div>	
-					</div>
-				</div>
-			</div>
-		
-		<hr class="divider"/><!-- Atributos do imóvel -->
+<!-- 						</div>	 -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 		
 			<h4>Atributos do imóvel</h4>
 		
 			<div  class="well well-small">
+			
 				<div class="row">
 									
 					<div class="col-sm-2  form-group">
@@ -172,83 +171,38 @@
 							<div class="input-group-addon">vagas</div>
 						</div>
 					</div>	
-				</div>		
-			</div>	
-			
-			<hr class="divider"/> <!-- VALORES DO IMOVEL -->
-			
-			<h4>Valores do imóvel</h4>
-			
-			<div  class="well well-small">
-			
-				<div class="row">
-				
-					<div class= "col-sm-6 form-group">
-						<label for="organizacaoFinanceira">Organização Financeira</label>
-						<input id="organizacaoFinanceira" type="text" class="form-control"></input>
-					</div>
-				
-				</div>
-			
-				<div class="row">
-				
-					<div class= "col-sm-2 form-group">
-						<label for="valorimovel">Valor do imóvel</label>
-							<div class="input-group">
-								<div class="input-group-addon">R$</div>
-								<input id="valorimovel" type="text" class="form-control js-decimal"></input>
-							</div>
-					</div>
-					
-					<div class= "col-sm-2 form-group">
-						<label for="sinal">Sinal</label>
-							<div class="input-group">
-								<div class="input-group-addon">R$</div>
-								<input id="sinal" type="text" class="form-control js-decimal"></input>
-							</div>
-					</div>
-					
-					<div class= "col-sm-2 form-group">
-						<label for="prazo">Prazo Financiamento</label>
-							<div class="input-group">
-								<input id="prazo" type="text" class="form-control js-inteiro"></input>
-								<div class="input-group-addon">anos</div>
-							</div>
-					</div>
-					
-				</div>
+				</div>	
 				
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group">
-						<label for="saldoDevedor">Saldo devedor</label>
-							<div class="input-group">
-								<div class="input-group-addon">R$</div>
-								<input id="saldoDevedor" type="text" class="form-control js-decimal"></input>
-							</div>
-					</div>
-					
-					<div class="col-lg-3  col-sm-6  form-group">
-						<label for="quitado">Quitado?</label>
+				<div class="col-lg-2 col-sm-6">
+						<label for="status">Status do Imóvel</label>
 						<div>
-							<div class="radio  radio-inline">
-								<input type="radio" name="quitado"> 
-								<label>sim</label>
-							</div>
-							<div class="radio  radio-inline">
-								<input type="radio" name="quitado"> 
-								<label>não</label>
-							</div>
+							<th:block th:each="status : ${statusImovel}">
+								<div class="radio radio-inline">
+									<input th:id="|id_${status}|" type="radio" th:value="${status}" name="status"/> <!-- PIPE para concatenar Strings id+... -->
+									<label th:for="|id_${status}|" th:text="${status.getStatus_imovel()}">Ativo</label>
+								</div>
+							</th:block>
+						</div>
+					</div>
+					
+					<div class="col-lg-3 col-sm-6">
+						<label for="status">Exclusividade do Imóvel</label>
+						<div>
+							<th:block th:each="exclusividade : ${exclusividadeImovel}">
+								<div class="radio radio-inline">
+									<input th:id="|id_${exclusividade}|" type="radio" th:value="${exclusividade}" name="status"/> <!-- PIPE para concatenar Strings id+... -->
+									<label th:for="|id_${exclusividade}|" th:text="${exclusividade.getImovel_exclusividade()}">Exclusividade</label>
+								</div>
+							</th:block>
 						</div>
 					</div>
 				
-				
-				
 				</div>
-			</div>
+					
+			</div>	
 			
-			
-				
 				<div class="form-group">
 					<button class="btn  btn-primary" type="submit">Salvar</button>
 				</div>
@@ -256,8 +210,8 @@
 			</form>
 		</div>
 		
-		<div th:replace="modal/modalProprietario :: modalProprietario"></div>
-		<div th:replace="modal/modalEndereco :: modalEndereco"></div>
+<!-- 		<div th:replace="modal/modalProprietario :: modalProprietario"></div> -->
+<!-- 		<div th:replace="modal/modalEndereco :: modalEndereco"></div> -->
 	</section>
 
 </body>

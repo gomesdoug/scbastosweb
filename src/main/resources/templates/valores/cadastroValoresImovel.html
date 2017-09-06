@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'">
+<head>
+
+	<title>valores do imóvel</title>
+
+</head>
+
+<body>
+	
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>
+					Cadastro de valores do Imóvel.
+				</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<form method="POST" class="form-vertical  js-form-loading">
+			
+				<div  class="well well-small">
+				
+					<div class="row">
+					
+						<div class= "col-sm-6 form-group">
+							<label for="organizacaoFinanceira">Organização Financeira</label>
+							<input id="organizacaoFinanceira" type="text" class="form-control"></input>
+						</div>
+					
+					</div>
+				
+					<div class="row">
+					
+						<div class= "col-sm-2 form-group">
+							<label for="valorimovel">Valor do imóvel</label>
+								<div class="input-group">
+									<div class="input-group-addon">R$</div>
+									<input id="valorimovel" type="text" class="form-control js-decimal"></input>
+								</div>
+						</div>
+						
+						<div class= "col-sm-2 form-group">
+							<label for="sinal">Sinal</label>
+								<div class="input-group">
+									<div class="input-group-addon">R$</div>
+									<input id="sinal" type="text" class="form-control js-decimal"></input>
+								</div>
+						</div>
+						
+						<div class= "col-sm-2 form-group">
+							<label for="prazo">Prazo Financiamento</label>
+								<div class="input-group">
+									<input id="prazo" type="text" class="form-control js-inteiro"></input>
+									<div class="input-group-addon">anos</div>
+								</div>
+						</div>
+						
+					</div>
+					
+					<div class="row">
+					
+						<div class= "col-sm-2 form-group">
+							<label for="saldoDevedor">Saldo devedor</label>
+								<div class="input-group">
+									<div class="input-group-addon">R$</div>
+									<input id="saldoDevedor" type="text" class="form-control js-decimal"></input>
+								</div>
+						</div>
+						
+						<div class="col-lg-3  col-sm-6  form-group">
+							<label for="quitado">Quitado?</label>
+							<div>
+								<div class="radio  radio-inline">
+									<input type="radio" name="quitado"> 
+									<label>sim</label>
+								</div>
+								<div class="radio  radio-inline">
+									<input type="radio" name="quitado"> 
+									<label>não</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

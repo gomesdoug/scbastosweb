@@ -48,9 +48,6 @@ public class Imovel implements Serializable{
 	private String corretor;
 	private String opcionista;
 	
-	private boolean ativo;
-	private boolean exclusividade;
-	
 	@NotBlank(message = "A data de captação é obrigatória.")
 	@Column(name="data_captacao")
 	private Date dataCaptacao;
@@ -95,7 +92,15 @@ public class Imovel implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private EnumSituacao situacao;
 	
+	@Enumerated(EnumType.STRING)
+	private EnumStatusImovel status_imovel;
+	
+	@Enumerated(EnumType.STRING)
+	private EnumExclusividadeImovel exclusividade_imovel;
+	
 	//GETTERS AND SETTERS ----------------------
+	
+	
 	public Long getIdImovel() {
 		return idImovel;
 	}
@@ -150,18 +155,7 @@ public class Imovel implements Serializable{
 	public void setOpcionista(String opcionista) {
 		this.opcionista = opcionista;
 	}
-	public boolean isAtivo() {
-		return ativo;
-	}
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-	public boolean isExclusividade() {
-		return exclusividade;
-	}
-	public void setExclusividade(boolean exclusividade) {
-		this.exclusividade = exclusividade;
-	}
+	
 	public Date getDataCaptacao() {
 		return dataCaptacao;
 	}
