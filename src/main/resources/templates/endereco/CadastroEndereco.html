@@ -54,13 +54,17 @@
 					
 				<div class="row">	
 					<div class= "col-sm-2 form-group">
-						<label for="descricao">Bairro</label>
-						<input id="tel_1" type="text" class="form-control"></input>
+						<label for="bairro">Bairro</label>
+						<select id="bairro" class="form-control">
+							<option th:ech="Xbairros : ${bairro}" th:value="${Xbairros.getIdBairro()}" th:text="${Xbairros.getNomeBairro()}" class="form-control"></option>
+						</select>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
-						<label for="descricao">Município</label>
-						<input id="tel_2" type="text" class="form-control"></input>
+						<label for="municipio">Município</label>
+						<select id="municipio" class="form-control">
+							<option th:ech="Xmunicipios : ${municipio}" th:value="${Xmunicipios.getIdMunicipio()}" th:text="${Xmunicipios.getNomeMunicipio()}" class="form-control"></option>
+						</select>
 					</div>
 					
 				</div>

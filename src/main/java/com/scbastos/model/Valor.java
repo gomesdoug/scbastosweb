@@ -1,5 +1,6 @@
 package com.scbastos.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -9,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Valor {
+public class Valor implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="id_valor")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +33,7 @@ public class Valor {
 	@Column(name ="org_financeira")
 	private String OrgFinanceira;
 	
-	private boolean quitado;
+	private String quitado;
 
 	public Long getIdValor() {
 		return idValor;
@@ -82,13 +85,43 @@ public class Valor {
 		OrgFinanceira = orgFinanceira;
 	}
 
-	public boolean isQuitado() {
+	public String isQuitado() {
 		return quitado;
 	}
 
-	public void setQuitado(boolean quitado) {
+	public void setQuitado(String quitado) {
 		this.quitado = quitado;
 	}
+
+	//HASHCODE AND EQUALS
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idValor == null) ? 0 : idValor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Valor other = (Valor) obj;
+		if (idValor == null) {
+			if (other.idValor != null)
+				return false;
+		} else if (!idValor.equals(other.idValor))
+			return false;
+		return true;
+	}
+	
+	
+	
 	
 	
 	
