@@ -2,7 +2,7 @@ package com.scbastos.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,21 +11,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name="endereco")
 public class Endereco implements Serializable{
-	
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_endereco")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEndereco;
+	private Long id_endereco;
 	
-	
+	//@NotBlank(message = "O logradouro é obrigatório")
 	private String logradouro;
+	
+	//@NotBlank(message = "Por favor, informe o CEP do endereço")
 	private String cep;
+	
+	//@NotBlank(message = "Por favor, informe o número do imóvel")
 	private String numero;
 	
 	@ManyToOne
@@ -35,10 +39,10 @@ public class Endereco implements Serializable{
 	// GETTERS AND SETTERS
 	
 	public Long getIdEndereco() {
-		return idEndereco;
+		return id_endereco;
 	}
 	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+		this.id_endereco = idEndereco;
 	}
 	public String getLogradouro() {
 		return logradouro;
@@ -71,7 +75,7 @@ public class Endereco implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (idEndereco ^ (idEndereco >>> 32));
+		result = prime * result + (int) (id_endereco ^ (id_endereco >>> 32));
 		return result;
 	}
 	@Override
@@ -83,17 +87,10 @@ public class Endereco implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (idEndereco != other.idEndereco)
+		if (id_endereco != other.id_endereco)
 			return false;
 		return true;
 	}
-	
-
-	
-	
-	
-	
-	
 	
 
 }// END CLASS

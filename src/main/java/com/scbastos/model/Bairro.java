@@ -1,12 +1,14 @@
 package com.scbastos.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,7 @@ public class Bairro implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_bairro")
-	private Long idBairro;
+	private Long id_bairro;
 	
 	@Column(name = "nome_bairro")
 	private String nomeBairro;
@@ -25,16 +26,20 @@ public class Bairro implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "Municipio_id_Municipio")
 	private Municipio municipio;
+	
+	@OneToMany(mappedBy="bairro")
+	private List<Endereco> endereco;
 
 	//GETTERS AND SETTERS
 	
-	public Long getIdBairro() {
-		return idBairro;
+
+	public Long getId_bairro() {
+		return id_bairro;
 	}
 
 
-	public void setIdBairro(Long idBairro) {
-		this.idBairro = idBairro;
+	public void setId_bairro(Long id_bairro) {
+		this.id_bairro = id_bairro;
 	}
 
 
@@ -57,17 +62,28 @@ public class Bairro implements Serializable{
 		this.municipio = municipio;
 	}
 
-	//HASHCODE AND EQUALS
 
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
+	}
+
+
+	//HASHCODE AND EQUALS
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idBairro == null) ? 0 : idBairro.hashCode());
+		result = prime * result + ((id_bairro == null) ? 0 : id_bairro.hashCode());
 		return result;
 	}
-
-
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,21 +93,11 @@ public class Bairro implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Bairro other = (Bairro) obj;
-		if (idBairro == null) {
-			if (other.idBairro != null)
+		if (id_bairro == null) {
+			if (other.id_bairro != null)
 				return false;
-		} else if (!idBairro.equals(other.idBairro))
+		} else if (!id_bairro.equals(other.id_bairro))
 			return false;
 		return true;
 	}
-
-	
-	
-	
-
-	
-	
-	
-	
-
 }//END CLASS

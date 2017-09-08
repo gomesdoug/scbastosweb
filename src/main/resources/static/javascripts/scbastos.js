@@ -6,6 +6,16 @@ $(function(){
 	decimal.maskMoney();
 	
 	var inteiro = $('.js-inteiro');
-	inteiro.maskMoney({precision:0});
+	inteiro.maskMoney({thousands:'',decimal:''});
+	
+	var cep = $('.jsmask-cep');
+	cep.mask("99999-999");
 	
 });
+
+//$(".alpha-only").on("input", function(){
+//	  var regexp = /[^a-zA-Z]/g;
+//	  if($(this).val().match(regexp)){
+//	    $(this).val( $(this).val().replace(regexp,'') );
+//	  }
+//	});

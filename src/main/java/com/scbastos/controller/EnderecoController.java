@@ -1,13 +1,20 @@
 package com.scbastos.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.scbastos.model.Endereco;
 import com.scbastos.repository.Bairros;
 import com.scbastos.repository.Municipios;
+import com.scbastos.service.CadastroEnderecoService;
 
 @Controller
 public class EnderecoController {
@@ -18,6 +25,9 @@ public class EnderecoController {
 	@Autowired
 	private Municipios municipios;
 	
+	@Autowired
+	private CadastroEnderecoService cadastroEnderecoService;
+	
 	@RequestMapping("/endereco/novo")
 	public ModelAndView novo(Endereco endereco){
 		ModelAndView mv = new ModelAndView("endereco/CadastroEndereco");
@@ -25,6 +35,24 @@ public class EnderecoController {
 		mv.addObject("bairro",bairros.findAll());
 		
 		return mv;
+	}
+	
+	@RequestMapping(value = "/endereco/novo", method = RequestMethod.POST)
+	public ModelAndView cadastrar(@Valid Endereco endereco, BindingResult result, Model model, RedirectAttributes atributes){
+		
+//		if(result.hasErrors()){
+//			return novo(endereco);
+//		}
+		
+		// Salvar no banco de dados
+		
+		cadastroEnderecoService.salvar(endereco);
+		atributes.addFlashAttribute("mensagem", "Endereco cadastrado com sucesso");
+		//System.out.println(">>>> Logradouro:" + endereco.getLogradouro());
+		//System.out.println(">>>> Bairro:" + endereco.getBairro());
+		//System.out.println(">>>> Municipio:" + endereco.getBairro().getMunicipio());
+		return new ModelAndView("redirect:/endereco/novo");
+		
 	}
 
 }// END CLASS

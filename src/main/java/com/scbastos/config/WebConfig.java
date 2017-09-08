@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.support.DefaultFormattingConversionService;
+import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -18,6 +20,8 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import com.scbastos.controller.ProprietarioController;
+import com.scbastos.controller.converter.BairroConverter;
+import com.scbastos.controller.converter.MunicipioConverter;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
@@ -65,5 +69,14 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 	}
 	
 	
+	//CONVERSOR DE BAIRROS
+	@Bean 
+	public FormattingConversionService mvConversionService(){
+		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
+		conversionService.addConverter(new BairroConverter());
+		//conversionService.addConverter(new MunicipioConverter());
+		return conversionService;
+	}
+		
 	
 }//END CLASS

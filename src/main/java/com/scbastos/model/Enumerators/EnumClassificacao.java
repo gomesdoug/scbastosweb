@@ -1,4 +1,4 @@
-package com.scbastos.model;
+package com.scbastos.model.Enumerators;
 
 public enum EnumClassificacao {
 	

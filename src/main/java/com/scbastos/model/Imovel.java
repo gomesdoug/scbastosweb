@@ -16,7 +16,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotBlank;
+import com.scbastos.model.Enumerators.EnumClassificacao;
+import com.scbastos.model.Enumerators.EnumConservacao;
+import com.scbastos.model.Enumerators.EnumDestinacao;
+import com.scbastos.model.Enumerators.EnumExclusividadeImovel;
+import com.scbastos.model.Enumerators.EnumSituacao;
+import com.scbastos.model.Enumerators.EnumStatusImovel;
+import com.scbastos.model.Enumerators.EnumTipoImovel;
 
 @Entity
 @Table(name="imovel")
@@ -28,12 +34,12 @@ public class Imovel implements Serializable{
 	// ATRIBUTOS ----------------------
 	
 	@Id
-	@Column(name="id_imovel")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idImovel;
+	private Long id_imovel;
 	
-	@NotBlank(message = "O código SC é obrigatório.")
-	private Long codigocs;
+	//@NotBlank(message = "O código SC é obrigatório.")
+	private Long codigosc;
+	
 	private int garagem;
 	
 	@Column(name="idade_imovel")
@@ -48,7 +54,7 @@ public class Imovel implements Serializable{
 	private String corretor;
 	private String opcionista;
 	
-	@NotBlank(message = "A data de captação é obrigatória.")
+	//@NotBlank(message = "A data de captação é obrigatória.")
 	@Column(name="data_captacao")
 	private Date dataCaptacao;
 	
@@ -102,19 +108,25 @@ public class Imovel implements Serializable{
 	
 	
 	public Long getIdImovel() {
-		return idImovel;
+		return id_imovel;
 	}
 	public void setIdImovel(Long idImovel) {
-		this.idImovel = idImovel;
+		this.id_imovel = idImovel;
 	}
-	public Long getCodigocs() {
-		return codigocs;
+	public Long getCodigosc() {
+		return codigosc;
 	}
-	public void setCodigocs(Long codigocs) {
-		this.codigocs = codigocs;
+	public void setCodigosc(Long codigosc) {
+		this.codigosc = codigosc;
 	}
 	public int getGaragem() {
 		return garagem;
+	}
+	public EnumStatusImovel getStatus_imovel() {
+		return status_imovel;
+	}
+	public void setStatus_imovel(EnumStatusImovel status_imovel) {
+		this.status_imovel = status_imovel;
 	}
 	public void setGaragem(int garagem) {
 		this.garagem = garagem;
@@ -231,11 +243,17 @@ public class Imovel implements Serializable{
 	
 	//HASHCODE AND EQUALS ----------------------
 	
+	public EnumExclusividadeImovel getExclusividade_imovel() {
+		return exclusividade_imovel;
+	}
+	public void setExclusividade_imovel(EnumExclusividadeImovel exclusividade_imovel) {
+		this.exclusividade_imovel = exclusividade_imovel;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (idImovel ^ (idImovel >>> 32));
+		result = prime * result + (int) (id_imovel ^ (id_imovel >>> 32));
 		return result;
 	}
 	@Override
@@ -247,7 +265,7 @@ public class Imovel implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Imovel other = (Imovel) obj;
-		if (idImovel != other.idImovel)
+		if (id_imovel != other.id_imovel)
 			return false;
 		return true;
 	}

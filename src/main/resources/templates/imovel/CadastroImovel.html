@@ -80,21 +80,21 @@
 						<label for="codigosc">Código SC</label>
 						<div class="input-group">
 							<div class="input-group-addon">sc</div>
-							<input id="codigosc" type="text" class="form-control js-inteiro"/>
+							<input id="codigosc" type="text" class="form-control js-inteiro" th:field="*{codigosc}"/>
 						</div>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="tipo_imovel">Tipo do imóvel</label>
-						<select id="tipo_imovel" class="form-control">
-							<option th:each="XtipoImovel : ${tipoImoveis}" th:value="${XtipoImovel}" th:text="${XtipoImovel.enum_tipoImovel}"></option>
+						<select id="tipo_imovel" class="form-control" th:field="*{tipoImovel}">
+							<option th:each="tipoImovel : ${tipoImoveis}" th:value="${tipoImovel}" th:text="${tipoImovel.enum_tipoImovel}"></option>
 						</select>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="classificacao">Classificacao</label>
-						<select id="classificacao" class="form-control">
-							<option th:each="Xclassificacao : ${classificacoes}" th:value="${Xclassificacao}" th:text="${Xclassificacao.enum_classificacao}"></option>
+						<select id="classificacao" class="form-control" th:field="*{classificacao}">
+							<option th:each="classificacao : ${classificacoes}" th:value="${classificacao}" th:text="${classificacao.enum_classificacao}"></option>
 						</select>
 					</div>
 					
@@ -104,12 +104,12 @@
 				
 					<div class= "col-sm-2 form-group">
 						<label for="matricula">Matrícula</label>
-						<input id="matricula" type="text" class="form-control"></input>
+						<input id="matricula" type="text" class="form-control js-inteiro" th:field="*{matricula}"></input>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
 						<label for="inscricao">Inscrição imobiliária</label>
-						<input id="inscricao" type="text" class="form-control"></input>
+						<input id="inscricao" type="text" class="form-control js-inteiro" th:field="*{inscricaoImobiliaria}"></input>
 					</div>
 				
 					<div class= "col-sm-2 form-group">
@@ -124,22 +124,22 @@
 					<div class= "col-sm-2 form-group">
 						<label for="idade_imovel">idade do imóvel</label>
 						<div class="input-group">
-							<input id="idade_imovel" type="text" class="form-control js-inteiro"></input>
+							<input id="idade_imovel" type="text" class="form-control js-inteiro" th:field="*{idadeImovel}"></input>
 							<div class="input-group-addon">anos</div>
 						</div>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="destinacao">Destinação</label>
-						<select id="destinacao" class="form-control">
-							<option th:each="Xdestinacao : ${destinacoes}" th:value="${Xdestinacao}" th:text="${Xdestinacao.getEnum_destinacao()}"></option>
+						<select id="destinacao" class="form-control" th:field="*{destinacao}">
+							<option th:each="destinacao : ${destinacoes}" th:value="${destinacao}" th:text="${destinacao.getEnum_destinacao()}"></option>
 						</select>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
 						<label for="area_total">Área total</label>
 						<div class="input-group">
-							<input id="area_total" type="text" class="form-control js-decimal"></input>
+							<input id="area_total" type="text" class="form-control js-decimal" th:field="*{areaTotal}"></input>
 							<div class="input-group-addon">M²</div>
 						</div>
 					</div>
@@ -150,28 +150,30 @@
 				
 					<div class="col-sm-2  form-group">
 						<label for="situacao">Situação</label>
-						<select id="situacao" class="form-control">
+						<select id="situacao" class="form-control" th:field="*{situacao}">
 							<option value="">Selecione</option>
-							<option th:each="Xsituacao : ${situacoes}" th:value="${Xsituacao}" th:text="${Xsituacao.getEnum_situacao()}"></option>
+							<option th:each="situacao : ${situacoes}" th:value="${situacao}" th:text="${situacao.getEnum_situacao()}"></option>
 						</select>
 					</div>
 					
 					<div class="col-sm-2  form-group">
 						<label for="conservacao">Conservação</label>
-						<select id="conservacao" class="form-control">
+						<select id="conservacao" class="form-control" th:field="*{conservacao}">
 							<option value="">Selecione</option>
-							<option th:each="Xconservacao : ${conservacao}" th:value="${Xconser}" th:text="${Xconservacao.getEnum_conservacao()}"></option>
+							<option th:each="conservacao : ${conservacao}" th:value="${conservacao}" th:text="${conservacao.getEnum_conservacao()}"></option>
 						</select>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
 						<label for="garagem">Garagem</label>
 						<div class="input-group">
-							<input id="garagem" type="text" class="form-control js-inteiro"></input>
+							<input id="garagem" type="text" class="form-control js-inteiro" th:field="*{garagem}"></input>
 							<div class="input-group-addon">vagas</div>
 						</div>
 					</div>	
 				</div>	
+				
+				<br></br>
 				
 				<div class="row">
 				
@@ -180,7 +182,7 @@
 						<div>
 							<th:block th:each="status : ${statusImovel}">
 								<div class="radio radio-inline">
-									<input th:id="|id_${status}|" type="radio" th:value="${status}" name="status"/> <!-- PIPE para concatenar Strings id+... -->
+									<input th:id="|id_${status}|" type="radio" th:value="${status}" th:field="*{status_imovel}"/> <!-- PIPE para concatenar Strings id+... -->
 									<label th:for="|id_${status}|" th:text="${status.getStatus_imovel()}">Ativo</label>
 								</div>
 							</th:block>
@@ -192,13 +194,24 @@
 						<div>
 							<th:block th:each="exclusividade : ${exclusividadeImovel}">
 								<div class="radio radio-inline">
-									<input th:id="|id_${exclusividade}|" type="radio" th:value="${exclusividade}" name="status"/> <!-- PIPE para concatenar Strings id+... -->
+									<input th:id="|id_${exclusividade}|" type="radio" th:value="${exclusividade}" th:field="*{exclusividade_imovel}"/> <!-- PIPE para concatenar Strings id+... -->
 									<label th:for="|id_${exclusividade}|" th:text="${exclusividade.getImovel_exclusividade()}">Exclusividade</label>
 								</div>
 							</th:block>
 						</div>
 					</div>
 				
+				</div>
+				
+				<br></br>
+				
+				<div class="row">
+					<div class="col-lg-6  col-sm-6">
+						<label for="nomecorretor">Nome do corretor</label>
+						<select id="nomecorretor" class="form-control" th:field="*{usuario}">
+							<option th:each="usuario : ${usuario}" th:value="${usuario.getIdUsuario()}" th:text="${usuario.getNome()}" class="form-control"></option>
+						</select>
+					</div>
 				</div>
 					
 			</div>	

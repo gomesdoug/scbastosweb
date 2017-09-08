@@ -5,7 +5,7 @@
 	layout:decorator="'layout/LayoutPadrao'">
 <head>
 
-<title>Cadastro de Proprietário</title>
+<title>Cadastro do Endereço</title>
 
 </head>
 
@@ -33,21 +33,21 @@
 				<div class="row">
 									
 					<div class="col-sm-6  form-group">
-						<label for="nome">Logradouro</label>
-						<input id="nome" type="text" class="form-control"/>
+						<label for="logradouro">Logradouro</label>
+						<input id="logradouro" type="text" class="form-control alpha-only" th:field="*{logradouro}"/>
 					</div>
 				</div>
 	
 				<div class="row">
 				
 					<div class= "col-sm-2 form-group">
-						<label for="descricao">Número do imóvel</label>
-						<input id="cpf_prop" type="text" class="form-control"></input>
+						<label for="numeroImovel">Número do imóvel</label>
+						<input id="numeroImovel" type="text" class="form-control js-inteiro " th:field="*{numero}"></input>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
-						<label for="descricao">CEP</label>
-						<input id="cpf_prop" type="text" class="form-control"></input>
+						<label for="cep">CEP</label>
+						<input id="cep" type="text" class="form-control jsmask-cep" th:field="*{cep}"></input>
 					</div>
 					
 				</div>	
@@ -55,15 +55,15 @@
 				<div class="row">	
 					<div class= "col-sm-2 form-group">
 						<label for="bairro">Bairro</label>
-						<select id="bairro" class="form-control">
-							<option th:ech="Xbairros : ${bairro}" th:value="${Xbairros.getIdBairro()}" th:text="${Xbairros.getNomeBairro()}" class="form-control"></option>
+						<select id="bairro" class="form-control" th:field="*{bairro.id_bairro}">
+							<option th:each="bairros : ${bairro}" th:value="${bairros.id_bairro}" th:text="${bairros.nomeBairro}" class="form-control"></option>
 						</select>
 					</div>
 					
 					<div class= "col-sm-2 form-group">
 						<label for="municipio">Município</label>
-						<select id="municipio" class="form-control">
-							<option th:ech="Xmunicipios : ${municipio}" th:value="${Xmunicipios.getIdMunicipio()}" th:text="${Xmunicipios.getNomeMunicipio()}" class="form-control"></option>
+						<select id="municipio" class="form-control" th:field="*{bairro.municipio}">
+							<option th:each="municipios : ${municipio}" th:value="${municipios.getIdMunicipio()}" th:text="${municipios.getNomeMunicipio()}" class="form-control"></option>
 						</select>
 					</div>
 					

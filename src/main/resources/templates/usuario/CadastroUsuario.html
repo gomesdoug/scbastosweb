@@ -30,41 +30,41 @@
 				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
 			</div> -->
 
-			<form method="POST" th:object="${proprietario}" class="form-vertical  js-form-loading">
+			<form method="POST" th:object="${usuario}" class="form-vertical  js-form-loading">
 		
 				<div class="row">
 									
 					<div class="col-sm-6  form-group">
 						<label for="nome">Nome do usuário</label>
-						<input id="nome" type="text" class="form-control"/>
+						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
 					</div>
 				</div>
 	
 				<div class="row">
 				
 					<div class= "col-sm-2 form-group">
-						<label for="descricao">cpf do usuário</label>
-						<input id="cpf_prop" type="text" class="form-control"></input>
+						<label for="cpf_prop">cpf do usuário</label>
+						<input id="cpf_prop" type="text" class="form-control" th:field="*{cpf}"></input>
 					</div>
 				</div>	
 					
 				<div class="row">
 					<div class= "col-sm-6 form-group">
-						<label for="descricao">Email do usuário</label>
-						<input id="email" type="text" class="form-control"></input>
+						<label for="email">Email do usuário</label>
+						<input id="email" type="text" class="form-control" th:field="*{email}"></input>
 					</div>
 				</div>
 				
 				<div class="row">
 				
 					<div class= "col-sm-3 form-group">
-						<label for="descricao">senha do usuário</label>
-						<input id="senha" type="password" class="form-control"></input>
+						<label for="senha">senha do usuário</label>
+						<input id="senha" type="password" class="form-control" th:field="*{senha}"></input>
 					</div>
 					
 					<div class= "col-sm-3 form-group">
-						<label for="descricao">confirmar senha do usuário</label>
-						<input id="senhaConf" type="password" class="form-control"></input>
+						<label for="senhaConf">confirmar senha do usuário</label>
+						<input id="senhaConf" type="password" class="form-control" th:field="*{senha}"></input>
 					</div>
 					
 					<div class="form-group  col-sm-3">
