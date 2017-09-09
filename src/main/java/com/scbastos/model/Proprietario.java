@@ -26,9 +26,9 @@ public class Proprietario implements Serializable{
 	@NotBlank(message = "O nome do proprietario é obrigatório")
 	private String nome;
 	
-	private String telefone_1;
+	private String telefone_fixo;
 	
-	private String telefone_2;
+	private String telefone_celular;
 	
 	private String email;
 	
@@ -55,20 +55,20 @@ public class Proprietario implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getTelefone_1() {
-		return telefone_1;
+	public String getTelefone_fixo() {
+		return telefone_fixo;
 	}
 
-	public void setTelefone_1(String telefone_1) {
-		this.telefone_1 = telefone_1;
+	public void setTelefone_fixo(String telefone_fixo) {
+		this.telefone_fixo = telefone_fixo;
 	}
 
-	public String getTelefone_2() {
-		return telefone_2;
+	public String getTelefone_celular() {
+		return telefone_celular;
 	}
 
-	public void setTelefone_2(String telefone_2) {
-		this.telefone_2 = telefone_2;
+	public void setTelefone_celular(String telefone_celular) {
+		this.telefone_celular = telefone_celular;
 	}
 
 	public String getEmail() {

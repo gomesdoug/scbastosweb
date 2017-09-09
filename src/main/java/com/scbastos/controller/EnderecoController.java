@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,12 +38,14 @@ public class EnderecoController {
 		return mv;
 	}
 	
+	
 	@RequestMapping(value = "/endereco/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Endereco endereco, BindingResult result, Model model, RedirectAttributes atributes){
 		
-//		if(result.hasErrors()){
-//			return novo(endereco);
-//		}
+		if(result.hasErrors()){
+			System.out.println("TEM ERRO !!!! ");
+			return novo(endereco);
+		}
 		
 		// Salvar no banco de dados
 		

@@ -32,7 +32,7 @@
 		
 				<div class="row">
 									
-					<div class="col-sm-10  form-group">
+					<div class="col-sm-6  form-group">
 						<label for="nome">Nome do proprietario</label>
 						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
 					</div>
@@ -42,28 +42,28 @@
 				
 					<div class= "col-sm-2 form-group">
 						<label for="cpf_prop">cpf do proprietário</label>
-						<input id="cpf_prop" type="text" class="form-control" th:field="*{cpf}"></input>
+						<input id="cpf_prop" type="text" class="form-control jsmask-cpf" th:field="*{cpf}"></input>
 					</div>
 				</div>	
 					
 				<div class="row">	
 					<div class= "col-sm-2 form-group">
-						<label for="tel_1">Telefone 1</label>
-						<input id="tel_1" type="text" class="form-control" th:field="*{telefone_1}"></input>
+						<label for="tel_1">Telefone Fixo</label>
+						<input id="tel_1" type="text" class="form-control jsmask-telFixo" th:field="*{telefone_fixo}"></input>
 					</div>
 				</div>
 				
 				<div class="row">
 					<div class= "col-sm-2 form-group">
-						<label for="tel_2">Telefone 2</label>
-						<input id="tel_2" type="text" class="form-control" th:field="*{telefone_2}"></input>
+						<label for="tel_2">Telefone celular</label>
+						<input id="tel_2" type="text" class="form-control jsmask-celular" th:field="*{telefone_celular}"></input>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class= "col-sm-5 form-group">
+					<div class= "col-sm-6 form-group">
 						<label for="email">Email do proprietário</label>
-						<input id="email" type="text" class="form-control" th:field="*{email}"></input>
+						<input id="text" type="text" class="form-control" th:field="*{email}"></input>
 					</div>
 				</div>
 					

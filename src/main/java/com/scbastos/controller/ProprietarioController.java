@@ -2,6 +2,7 @@ package com.scbastos.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,9 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.scbastos.model.Proprietario;
+import com.scbastos.service.CadastroProprietarioService;
 
 @Controller
 public class ProprietarioController {
+	
+	
+	@Autowired
+	private CadastroProprietarioService cadastroProprietarioService;
 	
 			
 	@RequestMapping("/proprietario/novo")
@@ -29,6 +35,7 @@ public class ProprietarioController {
 		}
 		
 		// Salvar no banco de dados
+		cadastroProprietarioService.salvarProprietario(proprietario);
 		atributes.addFlashAttribute("mensagem", "Proprietário cadastrado com sucesso");
 		System.out.println(">>>> cadastrar:" + proprietario.getNome());
 		return new ModelAndView("redirect:/proprietario/novo");

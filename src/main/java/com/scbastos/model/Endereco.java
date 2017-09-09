@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
 @Entity
 @Table(name="endereco")
 public class Endereco implements Serializable{
@@ -23,13 +24,13 @@ public class Endereco implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_endereco;
 	
-	//@NotBlank(message = "O logradouro é obrigatório")
+	@NotBlank(message = "O logradouro é obrigatório")
 	private String logradouro;
 	
-	//@NotBlank(message = "Por favor, informe o CEP do endereço")
+	@NotBlank(message = "Por favor, informe o CEP do endereço")
 	private String cep;
 	
-	//@NotBlank(message = "Por favor, informe o número do imóvel")
+	@NotBlank(message = "Por favor, informe o número do imóvel")
 	private String numero;
 	
 	@ManyToOne
@@ -75,9 +76,10 @@ public class Endereco implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id_endereco ^ (id_endereco >>> 32));
+		result = prime * result + ((id_endereco == null) ? 0 : id_endereco.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -87,10 +89,16 @@ public class Endereco implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (id_endereco != other.id_endereco)
+		if (id_endereco == null) {
+			if (other.id_endereco != null)
+				return false;
+		} else if (!id_endereco.equals(other.id_endereco))
 			return false;
 		return true;
 	}
+	
+	
+	
 	
 
 }// END CLASS

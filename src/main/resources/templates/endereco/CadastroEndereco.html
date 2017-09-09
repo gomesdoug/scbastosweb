@@ -23,18 +23,16 @@
 
 		<div class="container-fluid">
 
-			<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
-			</div> -->
-
 			<form method="POST" th:object="${endereco}" class="form-vertical  js-form-loading">
+				
+				<th:block th:include="fragments/MensagemSucesso"></th:block> 		<!-- Mensagem de sucesso -->
+				<th:block th:include="fragments/MensagensErroValidacao"></th:block> <!-- Mensagem de validacao -->
 		
 				<div class="row">
 									
 					<div class="col-sm-6  form-group">
 						<label for="logradouro">Logradouro</label>
-						<input id="logradouro" type="text" class="form-control alpha-only" th:field="*{logradouro}"/>
+						<input id="logradouro" type="text" class="form-control" th:field="*{logradouro}"/>
 					</div>
 				</div>
 	
@@ -62,7 +60,7 @@
 					
 					<div class= "col-sm-2 form-group">
 						<label for="municipio">Município</label>
-						<select id="municipio" class="form-control" th:field="*{bairro.municipio}">
+						<select id="municipio" class="form-control" th:field="*{bairro.municipio.idMunicipio}">
 							<option th:each="municipios : ${municipio}" th:value="${municipios.getIdMunicipio()}" th:text="${municipios.getNomeMunicipio()}" class="form-control"></option>
 						</select>
 					</div>
