@@ -30,21 +30,29 @@
 		
 				<div class="row">
 									
-					<div class="col-sm-6  form-group">
-						<label for="logradouro">Logradouro</label>
+					<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('logradouro')} ? has-error">
+						<label for="logradouro" class="control-label">Logradouro</label>
 						<input id="logradouro" type="text" class="form-control" th:field="*{logradouro}"/>
+					</div>
+				</div>
+				
+				<div class="row">
+									
+					<div class="col-sm-4  form-group" th:classappend="${#fields.hasErrors('complemento')} ? has-error">
+						<label for="complemento" class="control-label">Complemento</label>
+						<input id="complemento" type="text" class="form-control" th:field="*{complemento}"/>
 					</div>
 				</div>
 	
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group">
-						<label for="numeroImovel">Número do imóvel</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('numero')} ? has-error">
+						<label for="numeroImovel" class="control-label">Número do imóvel</label>
 						<input id="numeroImovel" type="text" class="form-control js-inteiro " th:field="*{numero}"></input>
 					</div>
 					
-					<div class= "col-sm-2 form-group">
-						<label for="cep">CEP</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('cep')} ? has-error">
+						<label for="cep" class="control-label">CEP</label>
 						<input id="cep" type="text" class="form-control jsmask-cep" th:field="*{cep}"></input>
 					</div>
 					

@@ -23,46 +23,45 @@
 
 		<div class="container-fluid">
 
-			<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
-			</div> -->
 
 			<form method="POST" th:object="${proprietario}" class="form-vertical  js-form-loading">
+			
+				<th:block th:include="fragments/MensagemSucesso"></th:block> 		<!-- Mensagem de sucesso -->
+				<th:block th:include="fragments/MensagensErroValidacao"></th:block> <!-- Mensagem de validacao -->
 		
 				<div class="row">
 									
-					<div class="col-sm-6  form-group">
-						<label for="nome">Nome do proprietario</label>
-						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
+					<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
+						<label for="nome" class="control-label">Nome do proprietario</label>
+						<input id="nome" type="text" class="form-control" placeholder="XX9999" th:field="*{nome}"/>
 					</div>
 				</div>
 	
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group">
-						<label for="cpf_prop">cpf do proprietário</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('cpf')} ? has-error">
+						<label for="cpf_prop" class="control-label">cpf do proprietário</label>
 						<input id="cpf_prop" type="text" class="form-control jsmask-cpf" th:field="*{cpf}"></input>
 					</div>
 				</div>	
 					
 				<div class="row">	
-					<div class= "col-sm-2 form-group">
-						<label for="tel_1">Telefone Fixo</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('telefone_fixo')} ? has-error">
+						<label for="tel_1" class="control-label">Telefone Fixo</label>
 						<input id="tel_1" type="text" class="form-control jsmask-telFixo" th:field="*{telefone_fixo}"></input>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class= "col-sm-2 form-group">
-						<label for="tel_2">Telefone celular</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('telefone_celular')} ? has-error">
+						<label for="tel_2" class="control-label">Telefone celular</label>
 						<input id="tel_2" type="text" class="form-control jsmask-celular" th:field="*{telefone_celular}"></input>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class= "col-sm-6 form-group">
-						<label for="email">Email do proprietário</label>
+					<div class= "col-sm-6 form-group" th:classappend="${#fields.hasErrors('email')} ? has-error">
+						<label for="email" class="control-label">Email do proprietário</label>
 						<input id="text" type="text" class="form-control" th:field="*{email}"></input>
 					</div>
 				</div>

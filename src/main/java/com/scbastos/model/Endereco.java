@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -27,9 +29,13 @@ public class Endereco implements Serializable{
 	@NotBlank(message = "O logradouro é obrigatório")
 	private String logradouro;
 	
+	private String complemento;
+	
 	@NotBlank(message = "Por favor, informe o CEP do endereço")
 	private String cep;
 	
+	@Min(value=1, message="O número do imóvel não pode ser 0 ou inferior")
+	@Max(value= 99999, message="O número do imóvel dever menor que 99999")
 	@NotBlank(message = "Por favor, informe o número do imóvel")
 	private String numero;
 	
@@ -70,8 +76,14 @@ public class Endereco implements Serializable{
 		this.bairro = bairro;
 	}
 	
-	// HASHCODE AND EQUALS
+	public String getComplemento() {
+		return complemento;
+	}
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
 	
+	// HASHCODE AND EQUALS
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -2,6 +2,7 @@ package com.scbastos.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,9 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.scbastos.model.Usuario;
+import com.scbastos.service.CadastroUsuarioService;
 
 @Controller
 public class UsuarioController {
+	
+	
+	@Autowired
+	CadastroUsuarioService cadastroUsuarioService;
 	
 	@RequestMapping("/usuario/novo")
 	public ModelAndView novo(Usuario usuario) {
@@ -26,12 +32,13 @@ public class UsuarioController {
 	public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult result, Model model, RedirectAttributes atributes){
 		
 		if(result.hasErrors()){
+			System.out.println("TEM ERRO !!!! ");
 			return novo(usuario);
 		}
 		
 		// Salvar no banco de dados
+		cadastroUsuarioService.salvarUsuario(usuario);
 		atributes.addFlashAttribute("mensagem", "Usuário cadastrado com sucesso");
-		System.out.println(">>>> cadastrar:" + usuario.getNome());
 		return new ModelAndView("redirect:/usuario/novo");
 		
 	}

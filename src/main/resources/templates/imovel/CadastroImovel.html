@@ -76,8 +76,8 @@
 			
 				<div class="row">
 									
-					<div class="col-sm-2  form-group">
-						<label for="codigosc">Código SC</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('codigosc')} ? has-error">
+						<label for="codigosc" class="control-label">Código SC</label>
 						<div class="input-group">
 							<div class="input-group-addon">sc</div>
 							<input id="codigosc" type="text" class="form-control js-inteiro" th:field="*{codigosc}"/>
@@ -102,13 +102,13 @@
 	
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group">
-						<label for="matricula">Matrícula</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('matricula')} ? has-error">
+						<label for="matricula" class="control-label">Matrícula</label>
 						<input id="matricula" type="text" class="form-control js-inteiro" th:field="*{matricula}"></input>
 					</div>
 					
-					<div class= "col-sm-2 form-group">
-						<label for="inscricao">Inscrição imobiliária</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('inscricaoImobiliaria')} ? has-error">
+						<label for="inscricao" class="control-label">Inscrição imobiliária</label>
 						<input id="inscricao" type="text" class="form-control js-inteiro" th:field="*{inscricaoImobiliaria}"></input>
 					</div>
 				
@@ -121,8 +121,8 @@
 				
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group">
-						<label for="idade_imovel">idade do imóvel</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('idadeImovel')} ? has-error">
+						<label for="idade_imovel" class="control-label">idade do imóvel</label>
 						<div class="input-group">
 							<input id="idade_imovel" type="text" class="form-control js-inteiro" th:field="*{idadeImovel}"></input>
 							<div class="input-group-addon">anos</div>
@@ -136,8 +136,8 @@
 						</select>
 					</div>
 					
-					<div class= "col-sm-2 form-group">
-						<label for="area_total">Área total</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('areaTotal')} ? has-error">
+						<label for="area_total" class="control-label">Área total</label>
 						<div class="input-group">
 							<input id="area_total" type="text" class="form-control js-decimal" th:field="*{areaTotal}"></input>
 							<div class="input-group-addon">M²</div>
@@ -164,8 +164,8 @@
 						</select>
 					</div>
 					
-					<div class= "col-sm-2 form-group">
-						<label for="garagem">Garagem</label>
+					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('garagem')} ? has-error">
+						<label for="garagem" class="control-label">Garagem</label>
 						<div class="input-group">
 							<input id="garagem" type="text" class="form-control js-inteiro" th:field="*{garagem}"></input>
 							<div class="input-group-addon">vagas</div>
@@ -177,8 +177,8 @@
 				
 				<div class="row">
 				
-				<div class="col-lg-2 col-sm-6">
-						<label for="status">Status do Imóvel</label>
+				<div class="col-lg-2 col-sm-6" th:classappend="${#fields.hasErrors('status_imovel')} ? has-error">
+						<label for="status" class="control-label">Status do Imóvel</label>
 						<div>
 							<th:block th:each="status : ${statusImovel}">
 								<div class="radio radio-inline">
@@ -189,8 +189,8 @@
 						</div>
 					</div>
 					
-					<div class="col-lg-3 col-sm-6">
-						<label for="status">Exclusividade do Imóvel</label>
+					<div class="col-lg-3 col-sm-6" th:classappend="${#fields.hasErrors('exclusividade_imovel')} ? has-error">
+						<label for="status" class="control-label">Exclusividade do Imóvel</label>
 						<div>
 							<th:block th:each="exclusividade : ${exclusividadeImovel}">
 								<div class="radio radio-inline">

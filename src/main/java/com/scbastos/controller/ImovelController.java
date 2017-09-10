@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.scbastos.model.Imovel;
-import com.scbastos.model.Usuario;
 import com.scbastos.model.Enumerators.EnumClassificacao;
 import com.scbastos.model.Enumerators.EnumConservacao;
 import com.scbastos.model.Enumerators.EnumDestinacao;

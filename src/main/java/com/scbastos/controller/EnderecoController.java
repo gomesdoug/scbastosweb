@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -51,9 +50,6 @@ public class EnderecoController {
 		
 		cadastroEnderecoService.salvar(endereco);
 		atributes.addFlashAttribute("mensagem", "Endereco cadastrado com sucesso");
-		//System.out.println(">>>> Logradouro:" + endereco.getLogradouro());
-		//System.out.println(">>>> Bairro:" + endereco.getBairro());
-		//System.out.println(">>>> Municipio:" + endereco.getBairro().getMunicipio());
 		return new ModelAndView("redirect:/endereco/novo");
 		
 	}

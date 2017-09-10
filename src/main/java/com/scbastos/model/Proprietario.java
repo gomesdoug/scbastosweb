@@ -9,8 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.scbastos.validation.Nome;
 
 @Entity
 @Table(name = "proprietario")
@@ -23,15 +24,18 @@ public class Proprietario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProprietario;
 	
-	@NotBlank(message = "O nome do proprietario é obrigatório")
+	@Nome
+	@NotBlank(message = "Por favor, informe o nome do proprietario é obrigatório.")
 	private String nome;
 	
 	private String telefone_fixo;
 	
+	@NotBlank(message = "Por favor, informe o telefone celular do proprietario.")
 	private String telefone_celular;
 	
 	private String email;
 	
+	@NotBlank(message = "Por favor, informe o CPF do proprietario.")
 	private String cpf;
 	
 	private Date data_cadastro;

@@ -5,9 +5,18 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import com.scbastos.model.Enumerators.EnumImovelQuitado;
+import com.scbastos.validation.Nome;
 
 @Entity
 public class Valor implements Serializable{
@@ -19,28 +28,36 @@ public class Valor implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idValor;
 	
+	@NotBlank(message = "Por favor, especifique o valor do imóvel")
+	@DecimalMin(value="0.00", message = "O valor do imóvel deve ser positivo")
 	@Column(name ="valor_decimal")
 	private BigDecimal valorImovel;
 	
+	@DecimalMin(value="0.00", message = "O valor do sinal deve ser positivo")
 	private BigDecimal sinal;
 	
+	@Min(value = 0, message="O prazo de financiamento deve ser um valor positivo")
 	@Column(name = "prazo_financiamento")
 	private int prazoFinanciamento;
 	
+	@DecimalMin(value="0.00", message = "O saldo devedor deve ser positivo")
 	@Column(name = "saldo_devedor")
 	private BigDecimal saldoDevedor;
 	
+	@Nome
 	@Column(name ="org_financeira")
 	private String OrgFinanceira;
 	
-	private String quitado;
+	@NotNull(message = "Por favor, especifique a se o imóvel está quitado ou não")
+	@Enumerated(EnumType.STRING)
+	private EnumImovelQuitado quitado;
 
+	// GETTERS AND SETTERS
+	
 	public Long getIdValor() {
 		return idValor;
 	}
 
-	// GETTERS AND SETTERS
-	
 	public void setIdValor(Long idValor) {
 		this.idValor = idValor;
 	}
@@ -74,7 +91,8 @@ public class Valor implements Serializable{
 	}
 
 	public void setSaldoDevedor(BigDecimal saldoDevedor) {
-		this.saldoDevedor = saldoDevedor;
+		this.saldoDevedor = saldoDevedor; 
+				//(valorImovel.subtract(sinal));
 	}
 
 	public String getOrgFinanceira() {
@@ -84,12 +102,12 @@ public class Valor implements Serializable{
 	public void setOrgFinanceira(String orgFinanceira) {
 		OrgFinanceira = orgFinanceira;
 	}
-
-	public String isQuitado() {
+	
+	public EnumImovelQuitado getQuitado() {
 		return quitado;
 	}
 
-	public void setQuitado(String quitado) {
+	public void setQuitado(EnumImovelQuitado quitado) {
 		this.quitado = quitado;
 	}
 
@@ -119,6 +137,9 @@ public class Valor implements Serializable{
 			return false;
 		return true;
 	}
+
+	
+	
 	
 	
 	
