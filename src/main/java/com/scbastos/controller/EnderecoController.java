@@ -12,18 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.scbastos.model.Endereco;
-import com.scbastos.repository.Bairros;
-import com.scbastos.repository.Municipios;
+import com.scbastos.repository.BairrosRepository;
+import com.scbastos.repository.MunicipiosRepository;
 import com.scbastos.service.CadastroEnderecoService;
 
 @Controller
 public class EnderecoController {
 	
 	@Autowired
-	private Bairros bairros;
+	private BairrosRepository bairros;
 	
 	@Autowired
-	private Municipios municipios;
+	private MunicipiosRepository municipios;
 	
 	@Autowired
 	private CadastroEnderecoService cadastroEnderecoService;
@@ -48,7 +48,7 @@ public class EnderecoController {
 		
 		// Salvar no banco de dados
 		
-		cadastroEnderecoService.salvar(endereco);
+		cadastroEnderecoService.salvarImovel(endereco);
 		atributes.addFlashAttribute("mensagem", "Endereco cadastrado com sucesso");
 		return new ModelAndView("redirect:/endereco/novo");
 		

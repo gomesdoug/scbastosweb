@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+import org.hibernate.validator.constraints.NotBlank;
 import com.scbastos.model.Enumerators.EnumClassificacao;
 import com.scbastos.model.Enumerators.EnumConservacao;
 import com.scbastos.model.Enumerators.EnumDestinacao;
@@ -38,6 +38,7 @@ public class Imovel implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_imovel;
 	
+	//@CodigoSC (VERIFICAR !!!)
 	@NotNull(message = "O código SC é obrigatório.")
 	private Long codigosc;
 	
@@ -46,8 +47,10 @@ public class Imovel implements Serializable{
 	@Column(name="idade_imovel")
 	private int idadeImovel;
 	
+	@NotBlank(message="Por favor, informe a matricula do imóvel.")
 	private String matricula;
 	
+	@NotBlank(message="Por favor, informe a inscrição imobiliária do imóvel.")
 	@Column(name="insc_imob")
 	private String inscricaoImobiliaria;
 	
@@ -99,9 +102,11 @@ public class Imovel implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private EnumSituacao situacao;
 	
+	@NotNull(message="Por favor, informe o Status do imóvel")
 	@Enumerated(EnumType.STRING)
 	private EnumStatusImovel status_imovel;
 	
+	@NotNull(message="Por favor, informe a exlusividade do imóvel")
 	@Enumerated(EnumType.STRING)
 	private EnumExclusividadeImovel exclusividade_imovel;
 	

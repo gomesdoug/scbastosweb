@@ -7,15 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.scbastos.exceptions.UsuarioCpfExpetion;
 import com.scbastos.exceptions.UsuarioEmailExpetion;
-import com.scbastos.exceptions.UsuarioTelefoneException;
 import com.scbastos.model.Usuario;
-import com.scbastos.repository.Usuarios;
+import com.scbastos.repository.UsuariosRepository;
 
 @Service
 public class CadastroUsuarioService {
 	
 	@Autowired
-	private Usuarios usuarios;
+	private UsuariosRepository usuarios;
 	
 	@Transactional
 	public void salvarUsuario(Usuario usuario){

@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.scbastos.model.Proprietario;
-import com.scbastos.repository.Proprietarios;
+import com.scbastos.repository.ProprietariosRepository;
 
 @Service
 public class CadastroProprietarioService {
 	
 	@Autowired
-	private Proprietarios proprietarios;
+	private ProprietariosRepository proprietarios;
 	
 	@Transactional
 	public void salvarProprietario(Proprietario proprietario){

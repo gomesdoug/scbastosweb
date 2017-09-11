@@ -2,10 +2,12 @@ package com.scbastos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import com.scbastos.model.Proprietario;
 
-import com.scbastos.model.Bairro;
 
 @Repository
-public interface Bairros extends JpaRepository<Bairro, Long>{
+public interface ProprietariosRepository extends JpaRepository<Proprietario, Long>{
+	
+	
 
-}
+}//END INTERFACE

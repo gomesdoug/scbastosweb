@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.scbastos.exceptions.ImovelCodigoSCExpetion;
 import com.scbastos.model.Imovel;
 import com.scbastos.model.Enumerators.EnumClassificacao;
 import com.scbastos.model.Enumerators.EnumConservacao;
@@ -19,26 +20,26 @@ import com.scbastos.model.Enumerators.EnumExclusividadeImovel;
 import com.scbastos.model.Enumerators.EnumSituacao;
 import com.scbastos.model.Enumerators.EnumStatusImovel;
 import com.scbastos.model.Enumerators.EnumTipoImovel;
-import com.scbastos.repository.Enderecos;
-import com.scbastos.repository.Proprietarios;
-import com.scbastos.repository.Usuarios;
-import com.scbastos.repository.Valores;
+import com.scbastos.repository.EnderecosRepository;
+import com.scbastos.repository.ProprietariosRepository;
+import com.scbastos.repository.UsuariosRepository;
+import com.scbastos.repository.ValoresRepository;
 import com.scbastos.service.CadastroImovelService;
 
 @Controller
 public class ImovelController {
 	
 	@Autowired
-	private Usuarios usuarios;
+	private UsuariosRepository usuarios;
 	
 	@Autowired
-	private Proprietarios proprietarios;
+	private ProprietariosRepository proprietarios;
 	
 	@Autowired
-	private Enderecos enderecos;
+	private EnderecosRepository enderecos;
 	
 	@Autowired
-	private Valores valores;
+	private ValoresRepository valores;
 	
 	@Autowired
 	private CadastroImovelService cadastroImovelService;
@@ -74,7 +75,17 @@ public class ImovelController {
 		
 		// Salvar no banco de dados
 		
-		cadastroImovelService.salvarImovel(imovel);
+		
+		
+	try {
+	 		cadastroImovelService.salvarImovel(imovel);
+			
+	} catch (ImovelCodigoSCExpetion sc) {
+			result.rejectValue("codigosc",sc.getMessage(), sc.getMessage());
+			return novo(imovel);
+	}
+		
+		
 		atributes.addFlashAttribute("mensagem", "Imovel cadastrado com sucesso");
 		System.out.println(">>>> CodigoSC:" + imovel.getCodigosc());
 		return new ModelAndView("redirect:/imovel/novo");

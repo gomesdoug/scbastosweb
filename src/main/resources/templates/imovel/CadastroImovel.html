@@ -87,15 +87,15 @@
 						</div>
 					</div>
 					
-					<div class="col-sm-2  form-group">
-						<label for="tipo_imovel">Tipo do imóvel</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('tipoImovel')} ? has-error">
+						<label for="tipo_imovel" class="control-label">Tipo do imóvel</label>
 						<select id="tipo_imovel" class="form-control" th:field="*{tipoImovel}">
 							<option th:each="tipoImovel : ${tipoImoveis}" th:value="${tipoImovel}" th:text="${tipoImovel.enum_tipoImovel}"></option>
 						</select>
 					</div>
 					
-					<div class="col-sm-2  form-group">
-						<label for="classificacao">Classificacao</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('classificacao')} ? has-error">
+						<label for="classificacao" class="control-label">Classificacao</label>
 						<select id="classificacao" class="form-control" th:field="*{classificacao}">
 							<option th:each="classificacao : ${classificacoes}" th:value="${classificacao}" th:text="${classificacao.enum_classificacao}"></option>
 						</select>
@@ -132,8 +132,8 @@
 						</div>
 					</div>
 					
-					<div class="col-sm-2  form-group">
-						<label for="destinacao">Destinação</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('destinacao')} ? has-error">
+						<label for="destinacao" class="destinacao">Destinação</label>
 						<select id="destinacao" class="form-control" th:field="*{destinacao}">
 							<option th:each="destinacao : ${destinacoes}" th:value="${destinacao}" th:text="${destinacao.getEnum_destinacao()}"></option>
 						</select>
@@ -151,18 +151,16 @@
 				
 				<div class="row">
 				
-					<div class="col-sm-2  form-group">
-						<label for="situacao">Situação</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('situacao')} ? has-error">
+						<label for="situacao" class="control-label">Situação</label>
 						<select id="situacao" class="form-control" th:field="*{situacao}">
-							<option value="">Selecione</option>
 							<option th:each="situacao : ${situacoes}" th:value="${situacao}" th:text="${situacao.getEnum_situacao()}"></option>
 						</select>
 					</div>
 					
-					<div class="col-sm-2  form-group">
-						<label for="conservacao">Conservação</label>
+					<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('conservacao')} ? has-error">
+						<label for="conservacao" class="control-label">Conservação</label>
 						<select id="conservacao" class="form-control" th:field="*{conservacao}">
-							<option value="">Selecione</option>
 							<option th:each="conservacao : ${conservacao}" th:value="${conservacao}" th:text="${conservacao.getEnum_conservacao()}"></option>
 						</select>
 					</div>
@@ -208,11 +206,11 @@
 				
 				<br></br>
 				
-				<div class="row">
-					<div class="col-lg-6  col-sm-6">
-						<label for="nomecorretor">Nome do corretor</label>
+				<div class="row"> <!-- Grava o IdUsuario na base de dados -->
+					<div class="col-lg-6  col-sm-6" th:classappend="${#fields.hasErrors('usuario')} ? has-error">
+						<label for="nomecorretor" class="control-label">Nome do corretor responsável</label>
 						<select id="nomecorretor" class="form-control" th:field="*{usuario}">
-							<option th:each="usuario : ${usuario}" th:value="${usuario.getIdUsuario()}" th:text="${usuario.getNome()}" class="form-control"></option>
+							<option th:each="usuario : ${usuario}" th:value="${usuario.IdUsuario}" th:text="${usuario.getNome()}" class="form-control"></option>
 						</select>
 					</div>
 				</div>

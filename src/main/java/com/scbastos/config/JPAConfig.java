@@ -16,12 +16,12 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.scbastos.model.Proprietario;
-import com.scbastos.repository.Proprietarios;
+import com.scbastos.repository.ProprietariosRepository;
 
 
 
 @Configuration
-@EnableJpaRepositories(basePackageClasses = Proprietarios.class, enableDefaultTransactions = false)
+@EnableJpaRepositories(basePackageClasses = ProprietariosRepository.class, enableDefaultTransactions = false)
 @EnableTransactionManagement
 public class JPAConfig {
 

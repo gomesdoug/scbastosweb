@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.scbastos.exceptions.UsuarioCpfExpetion;
 import com.scbastos.exceptions.UsuarioEmailExpetion;
-import com.scbastos.exceptions.UsuarioTelefoneException;
 import com.scbastos.model.Usuario;
 import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.service.CadastroUsuarioService;

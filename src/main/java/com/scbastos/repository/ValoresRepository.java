@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.scbastos.model.Valor;
 
 @Repository
-public interface Valores extends JpaRepository<Valor, Long>{
+public interface ValoresRepository extends JpaRepository<Valor, Long>{
 
 }

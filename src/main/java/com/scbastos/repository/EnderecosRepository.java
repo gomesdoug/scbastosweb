@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.scbastos.model.Endereco;
 
-public interface Enderecos extends JpaRepository<Endereco, Long>{
+public interface EnderecosRepository extends JpaRepository<Endereco, Long>{
 
 }

@@ -5,17 +5,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.scbastos.model.Endereco;
-import com.scbastos.repository.Enderecos;
+import com.scbastos.repository.EnderecosRepository;
 
 
 @Service
 public class CadastroEnderecoService {
 
 	@Autowired
-	private Enderecos enderecos;
+	private EnderecosRepository enderecos;
 	
 	@Transactional
-	public void salvar(Endereco endereco){
+	public void salvarImovel(Endereco endereco){
 		enderecos.save(endereco);
 		
 	}

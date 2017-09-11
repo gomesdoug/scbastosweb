@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.scbastos.model.Usuario;
 
 @Repository
-public interface Usuarios extends JpaRepository<Usuario, Long> {
+public interface UsuariosRepository extends JpaRepository<Usuario, Long> {
 	
 	public Optional<Usuario> findByCpf(String cpf);
 	

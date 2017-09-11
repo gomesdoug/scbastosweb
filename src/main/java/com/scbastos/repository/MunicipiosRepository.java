@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.scbastos.model.Municipio;
 
 @Repository
-public interface Municipios extends JpaRepository<Municipio, Long>{
+public interface MunicipiosRepository extends JpaRepository<Municipio, Long>{
 
 }

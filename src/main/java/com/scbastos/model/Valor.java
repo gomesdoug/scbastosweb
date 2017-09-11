@@ -13,9 +13,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotBlank;
-
 import com.scbastos.model.Enumerators.EnumImovelQuitado;
 import com.scbastos.validation.Nome;
 
