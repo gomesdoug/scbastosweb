@@ -31,6 +31,9 @@
 
 			<form method="POST" th:object="${imovel}" class="form-vertical  js-form-loading">
 			
+				<th:block th:include="fragments/MensagemSucesso"></th:block> 		<!-- Mensagem de sucesso -->
+				<th:block th:include="fragments/MensagensErroValidacao"></th:block> <!-- Mensagem de validacao -->
+			
 <!-- 			<div  class="well well-small">			 -->
 <!-- 				<div class="row"> -->
 <!-- 					<div class= "col-sm-6 form-group"> -->
@@ -177,7 +180,7 @@
 				
 				<div class="row">
 				
-				<div class="col-lg-2 col-sm-6" th:classappend="${#fields.hasErrors('status_imovel')} ? has-error">
+					<div class="col-lg-2 col-sm-6" th:classappend="${#fields.hasErrors('status_imovel')} ? has-error">
 						<label for="status" class="control-label">Status do Imóvel</label>
 						<div>
 							<th:block th:each="status : ${statusImovel}">

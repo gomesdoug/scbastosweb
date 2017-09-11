@@ -2,8 +2,8 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumStatusImovel {
 	
-	IMOVELATIVO("Ativo"),
-	IMOVELINATIVO("Inativo");
+	Ativo("Ativo"),
+	Inativo("Inativo");
 	
 	private String status_imovel;
 	

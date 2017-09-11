@@ -72,9 +72,14 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 	}
 	
+	@Bean
+	public LocaleResolver localeResolver() {
+		return new FixedLocaleResolver(new Locale("pt","BR"));
+	}
+	
 	
 	@Bean 
-	public FormattingConversionService mvConversionService(){
+	public FormattingConversionService mvcConversionService(){
 		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
 		conversionService.addConverter(new BairroConverter());
 		
@@ -87,10 +92,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return conversionService;
 	}
 	
-	@Bean
-	public LocaleResolver localeResolver() {
-		return new FixedLocaleResolver(new Locale("pt","BR"));
-	}
+	
 	
 
 		

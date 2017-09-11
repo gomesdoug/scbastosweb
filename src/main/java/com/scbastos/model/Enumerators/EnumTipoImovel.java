@@ -2,12 +2,12 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumTipoImovel {
 	
-	APARTAMENTO("Apartamento"),
-	CASA("Casa"),
-	TERRENO("Terreno"),
-	COMERCIO("Comércio"),
-	GALPAO("Galpão"),
-	DEPOSITO("Depósito");
+	Apartamento("Apartamento"),
+	Casa("Casa"),
+	Terreno("Terreno"),
+	Comercio("Comércio"),
+	Galpao("Galpão"),
+	Deposito("Depósito");
 	
 	private String enum_tipoImovel;
 	

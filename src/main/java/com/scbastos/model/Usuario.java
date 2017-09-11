@@ -5,13 +5,17 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.validation.Nome;
 
 @Entity
@@ -38,16 +42,20 @@ public class Usuario implements Serializable {
 	@NotBlank(message = "Por favor, informe o CPF do usuário.")
 	private String cpf;
 	
-	@NotBlank(message = "A senha é obrigatória.")
+	@NotNull(message = "A senha é obrigatória.")
 	private String senha;
 	
-	private boolean ativo;
+	@NotNull(message = "Por favor, especifique o Status do usuário")
+	@Enumerated(EnumType.STRING)
+	private EnumStatusUsuario status_usuario;
+	
 	private boolean opcionista;
+	
 	private boolean corretor;
 	
 	private Date data_cadastro;
 	
-	// GETTERS AND SETTERS
+	// GETTERS AND SETTERS ---------------------------------------
 	
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -67,12 +75,7 @@ public class Usuario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean isAtivo() {
-		return ativo;
-	}
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
+
 	public boolean isCorretor() {
 		return corretor;
 	}
@@ -111,7 +114,14 @@ public class Usuario implements Serializable {
 		this.telefone_celular = telefone_celular;
 	}
 	
-	//HASHCODE AND EQUALS
+	public EnumStatusUsuario getStatus_usuario() {
+		return status_usuario;
+	}
+	public void setStatus_usuario(EnumStatusUsuario status_usuario) {
+		this.status_usuario = status_usuario;
+	}
+	
+	//HASHCODE AND EQUALS -----------------------------------------------------------
 	
 	@Override
 	public int hashCode() {

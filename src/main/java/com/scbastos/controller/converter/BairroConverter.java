@@ -18,6 +18,4 @@ public class BairroConverter implements Converter<String, Bairro> {
 		return null;
 	}
 	
-	
-
 }

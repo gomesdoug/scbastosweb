@@ -15,6 +15,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+
 import com.scbastos.model.Enumerators.EnumImovelQuitado;
 import com.scbastos.validation.Nome;
 
@@ -28,9 +29,9 @@ public class Valor implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idValor;
 	
-	@NotBlank(message = "Por favor, especifique o valor do imóvel")
+	@NotNull(message = "Por favor, especifique o valor do imóvel")
 	@DecimalMin(value="0.00", message = "O valor do imóvel deve ser positivo")
-	@Column(name ="valor_decimal")
+	@Column(name ="valor_imovel")
 	private BigDecimal valorImovel;
 	
 	@DecimalMin(value="0.00", message = "O valor do sinal deve ser positivo")

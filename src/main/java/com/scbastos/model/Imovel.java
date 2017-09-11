@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.scbastos.model.Enumerators.EnumClassificacao;
 import com.scbastos.model.Enumerators.EnumConservacao;
@@ -37,7 +38,7 @@ public class Imovel implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_imovel;
 	
-	//@NotBlank(message = "O código SC é obrigatório.")
+	@NotNull(message = "O código SC é obrigatório.")
 	private Long codigosc;
 	
 	private int garagem;
@@ -241,7 +242,6 @@ public class Imovel implements Serializable{
 		this.situacao = situacao;
 	}
 	
-	//HASHCODE AND EQUALS ----------------------
 	
 	public EnumExclusividadeImovel getExclusividade_imovel() {
 		return exclusividade_imovel;
@@ -249,11 +249,14 @@ public class Imovel implements Serializable{
 	public void setExclusividade_imovel(EnumExclusividadeImovel exclusividade_imovel) {
 		this.exclusividade_imovel = exclusividade_imovel;
 	}
+	
+	//HASHCODE AND EQUALS ----------------------
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id_imovel ^ (id_imovel >>> 32));
+		result = prime * result + ((id_imovel == null) ? 0 : id_imovel.hashCode());
 		return result;
 	}
 	@Override
@@ -265,13 +268,13 @@ public class Imovel implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Imovel other = (Imovel) obj;
-		if (id_imovel != other.id_imovel)
+		if (id_imovel == null) {
+			if (other.id_imovel != null)
+				return false;
+		} else if (!id_imovel.equals(other.id_imovel))
 			return false;
 		return true;
 	}
-	
-	
-	
 	
 
 }//END CLASS

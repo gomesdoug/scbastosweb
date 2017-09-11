@@ -19,7 +19,11 @@ import com.scbastos.model.Enumerators.EnumExclusividadeImovel;
 import com.scbastos.model.Enumerators.EnumSituacao;
 import com.scbastos.model.Enumerators.EnumStatusImovel;
 import com.scbastos.model.Enumerators.EnumTipoImovel;
+import com.scbastos.repository.Enderecos;
+import com.scbastos.repository.Proprietarios;
 import com.scbastos.repository.Usuarios;
+import com.scbastos.repository.Valores;
+import com.scbastos.service.CadastroImovelService;
 
 @Controller
 public class ImovelController {
@@ -27,10 +31,23 @@ public class ImovelController {
 	@Autowired
 	private Usuarios usuarios;
 	
+	@Autowired
+	private Proprietarios proprietarios;
+	
+	@Autowired
+	private Enderecos enderecos;
+	
+	@Autowired
+	private Valores valores;
+	
+	@Autowired
+	private CadastroImovelService cadastroImovelService;
+	
 	
 	@RequestMapping("/imovel/novo")
 	public ModelAndView novo(Imovel imovel){
 		ModelAndView mv = new ModelAndView("imovel/CadastroImovel");
+		
 		mv.addObject("tipoImoveis", EnumTipoImovel.values());
 		mv.addObject("destinacoes", EnumDestinacao.values());
 		mv.addObject("conservacao", EnumConservacao.values());
@@ -40,6 +57,10 @@ public class ImovelController {
 		mv.addObject("exclusividadeImovel",EnumExclusividadeImovel.values());
 		
 		mv.addObject("usuario",usuarios.findAll());
+		mv.addObject("proprietario", proprietarios.findAll());
+		mv.addObject("endereco",enderecos.findAll());
+		mv.addObject("valor",valores.findAll());
+		
 		return mv;
 
 	}
@@ -47,17 +68,15 @@ public class ImovelController {
 	@RequestMapping(value = "/imovel/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Imovel imovel, BindingResult result, Model model, RedirectAttributes atributes){
 		
-		//if(result.hasErrors()){
-		//	return novo(imovel);
-		//}
+		if(result.hasErrors()){
+			return novo(imovel);
+		}
 		
 		// Salvar no banco de dados
+		
+		cadastroImovelService.salvarImovel(imovel);
 		atributes.addFlashAttribute("mensagem", "Imovel cadastrado com sucesso");
 		System.out.println(">>>> CodigoSC:" + imovel.getCodigosc());
-		System.out.println(">>>> Tipo do imovel:" + imovel.getTipoImovel());
-		System.out.println(">>>> Exclusividade:" + imovel.getExclusividade_imovel());
-		//System.out.println(">>>> DataCaptacao:" + imovel.getDataCaptacao());
-		//System.out.println(">>>> usuario:" + imovel.getUsuario().getNome());
 		return new ModelAndView("redirect:/imovel/novo");
 		
 	}

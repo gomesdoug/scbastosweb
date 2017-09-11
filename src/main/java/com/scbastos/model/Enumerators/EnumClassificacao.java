@@ -2,11 +2,11 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumClassificacao {
 	
-	DUPLEX("Duplex"),
-	LINEAR("Linear"),
-	SOBRADO("Sobrado"),
-	TERREA("Térrea"),
-	TRIPLEX("Triplex");
+	Duplex("Duplex"),
+	Linear("Linear"),
+	Sobrado("Sobrado"),
+	Terrea("Térrea"),
+	Triplex("Triplex");
 	
 	private String enum_classificacao;
 	

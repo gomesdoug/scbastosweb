@@ -2,9 +2,9 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumSituacao {
 
-	OCUPADO("Ocupado"),
-	VAZIO("Vazio"),
-	EMOBRAS("Em obras");
+	Ocupado("Ocupado"),
+	Vazio("Vazio"),
+	Obras("Em obras");
 	
 	private String enum_situacao;
 	

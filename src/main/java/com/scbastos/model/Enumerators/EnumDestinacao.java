@@ -2,8 +2,8 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumDestinacao {
 	
-	COMPRA("Compra"),
-	VENDA("Venda");
+	Compra("Compra"),
+	Venda("Venda");
 	
 	private String enum_destinacao;
 	

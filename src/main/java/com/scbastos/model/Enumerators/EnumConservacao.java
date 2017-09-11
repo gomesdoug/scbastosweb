@@ -2,12 +2,12 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumConservacao {
 	
-	IMOVELNOVO("Imóvel novo"),
-	OTIMO("Ótimo estado"),
-	REFORMA("Requer reforma"),
-	PRECARIO("Precário"),
-	PESSIMO("Péssimo"),
-	DESTRUIDO("Destruído");
+	ImovelNovo("Imóvel novo"),
+	Otimo("Ótimo estado"),
+	Reforma("Requer reforma"),
+	Precario("Precário"),
+	Pessimo("Péssimo"),
+	Destruido("Destruído");
 	
 	private String enum_conservacao;
 	
