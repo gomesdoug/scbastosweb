@@ -17,6 +17,7 @@ import com.scbastos.repository.MunicipiosRepository;
 import com.scbastos.service.CadastroEnderecoService;
 
 @Controller
+//@RequestMapping("/endereco")
 public class EnderecoController {
 	
 	@Autowired
@@ -38,7 +39,7 @@ public class EnderecoController {
 	}
 	
 	
-	@RequestMapping(value = "/endereco/novo", method = RequestMethod.POST)
+	@RequestMapping(value="/endereco/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Endereco endereco, BindingResult result, Model model, RedirectAttributes atributes){
 		
 		if(result.hasErrors()){

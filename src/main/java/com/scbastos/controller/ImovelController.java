@@ -27,6 +27,7 @@ import com.scbastos.repository.ValoresRepository;
 import com.scbastos.service.CadastroImovelService;
 
 @Controller
+@RequestMapping("/imovel")
 public class ImovelController {
 	
 	@Autowired
@@ -45,7 +46,7 @@ public class ImovelController {
 	private CadastroImovelService cadastroImovelService;
 	
 	
-	@RequestMapping("/imovel/novo")
+	@RequestMapping("/novo")
 	public ModelAndView novo(Imovel imovel){
 		ModelAndView mv = new ModelAndView("imovel/CadastroImovel");
 		
@@ -66,7 +67,7 @@ public class ImovelController {
 
 	}
 	
-	@RequestMapping(value = "/imovel/novo", method = RequestMethod.POST)
+	@RequestMapping(value = "/novo" ,method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Imovel imovel, BindingResult result, Model model, RedirectAttributes atributes){
 		
 		if(result.hasErrors()){
