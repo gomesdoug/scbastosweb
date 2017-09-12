@@ -47,17 +47,17 @@
 					
 				<div class="row">	
 					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('telefone_fixo')} ? has-error">
-						<label for="tel_1" class="control-label">Telefone Fixo</label>
-						<input id="tel_1" type="text" class="form-control jsmask-telFixo" th:field="*{telefone_fixo}"></input>
+						<label for="tel_1" class="control-label">Telefone</label>
+						<input id="tel_1" type="text" class="form-control js-phone-number" th:field="*{telefone_fixo}"></input>
 					</div>
 				</div>
 				
-				<div class="row">
+				<!-- <div class="row">
 					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('telefone_celular')} ? has-error">
 						<label for="tel_2" class="control-label">Telefone celular</label>
-						<input id="tel_2" type="text" class="form-control jsmask-celular" th:field="*{telefone_celular}"></input>
+						<input id="tel_2" type="text" class="form-control js-phone-number" th:field="*{telefone_celular}"></input>
 					</div>
-				</div>
+				</div> -->
 				
 				<div class="row">
 					<div class= "col-sm-6 form-group" th:classappend="${#fields.hasErrors('email')} ? has-error">

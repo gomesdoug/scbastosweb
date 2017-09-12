@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.scbastos.validation.Nome;
 
@@ -25,16 +28,16 @@ public class Proprietario implements Serializable{
 	private Long idProprietario;
 	
 	@Nome
-	@NotBlank(message = "Por favor, informe o nome do proprietario é obrigatório.")
+	@NotBlank(message = "Por favor, informe o nome do proprietário é obrigatório.")
 	private String nome;
 	
-	private String telefone_fixo;
+	@NotBlank(message ="Por favor, informe o telefone do proprietário.")
+	private String telefone;
 	
-	@NotBlank(message = "Por favor, informe o telefone celular do proprietario.")
-	private String telefone_celular;
-	
+	@Email(message="E-mail inválido.")
 	private String email;
 	
+	@CPF(message = "CPF inválido.")
 	@NotBlank(message = "Por favor, informe o CPF do proprietario.")
 	private String cpf;
 	
@@ -60,19 +63,11 @@ public class Proprietario implements Serializable{
 	}
 
 	public String getTelefone_fixo() {
-		return telefone_fixo;
+		return telefone;
 	}
 
 	public void setTelefone_fixo(String telefone_fixo) {
-		this.telefone_fixo = telefone_fixo;
-	}
-
-	public String getTelefone_celular() {
-		return telefone_celular;
-	}
-
-	public void setTelefone_celular(String telefone_celular) {
-		this.telefone_celular = telefone_celular;
+		this.telefone = telefone_fixo;
 	}
 
 	public String getEmail() {

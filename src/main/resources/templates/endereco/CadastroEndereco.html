@@ -38,7 +38,7 @@
 				
 				<div class="row">
 									
-					<div class="col-sm-4  form-group" th:classappend="${#fields.hasErrors('complemento')} ? has-error">
+					<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('complemento')} ? has-error">
 						<label for="complemento" class="control-label">Complemento</label>
 						<input id="complemento" type="text" class="form-control" th:field="*{complemento}"/>
 					</div>
@@ -46,12 +46,12 @@
 	
 				<div class="row">
 				
-					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('numero')} ? has-error">
+					<div class= "col-sm-3 form-group" th:classappend="${#fields.hasErrors('numero')} ? has-error">
 						<label for="numeroImovel" class="control-label">Número do imóvel</label>
 						<input id="numeroImovel" type="text" class="form-control js-inteiro " th:field="*{numero}"></input>
 					</div>
 					
-					<div class= "col-sm-2 form-group" th:classappend="${#fields.hasErrors('cep')} ? has-error">
+					<div class= "col-sm-3 form-group" th:classappend="${#fields.hasErrors('cep')} ? has-error">
 						<label for="cep" class="control-label">CEP</label>
 						<input id="cep" type="text" class="form-control jsmask-cep" th:field="*{cep}"></input>
 					</div>
@@ -59,14 +59,14 @@
 				</div>	
 					
 				<div class="row">	
-					<div class= "col-sm-2 form-group">
+					<div class= "col-sm-3 form-group">
 						<label for="bairro">Bairro</label>
 						<select id="bairro" class="form-control" th:field="*{bairro.id_bairro}">
 							<option th:each="bairros : ${bairro}" th:value="${bairros.id_bairro}" th:text="${bairros.nomeBairro}" class="form-control"></option>
 						</select>
 					</div>
 					
-					<div class= "col-sm-2 form-group">
+					<div class= "col-sm-3 form-group">
 						<label for="municipio">Município</label>
 						<select id="municipio" class="form-control" th:field="*{bairro.municipio.idMunicipio}">
 							<option th:each="municipios : ${municipio}" th:value="${municipios.getIdMunicipio()}" th:text="${municipios.getNomeMunicipio()}" class="form-control"></option>

@@ -10,10 +10,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.validation.Nome;
@@ -36,9 +40,11 @@ public class Usuario implements Serializable {
 	@NotBlank(message = "Por favor, informe o telefone celular do usuário.")
 	private String telefone_celular;
 	
+	@Email(message="E-mail inválido.")
 	@NotBlank(message = "Por favor, informe o email do usuário.")
 	private String email;
 	
+	@CPF(message = "CPF inválido.")
 	@NotBlank(message = "Por favor, informe o CPF do usuário.")
 	private String cpf;
 	
@@ -54,6 +60,16 @@ public class Usuario implements Serializable {
 	private boolean corretor;
 	
 	private Date data_cadastro;
+	
+	
+	//REMOVER FORMATO CPF PARA SALVA NO BANCO DE DADOS ----------
+	
+	@PrePersist @PreUpdate
+	private void prePersistPreUpdate() {
+		this.cpf = this.cpf.replaceAll("\\.|-", "");
+	}
+	
+	
 	
 	// GETTERS AND SETTERS ---------------------------------------
 	
