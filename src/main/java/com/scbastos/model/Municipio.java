@@ -17,8 +17,7 @@ public class Municipio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_municipio")
-	private Long idMunicipio;
+	private Long codigo;
 	
 	@Column(name = "nome_municipio")
 	private String NomeMunicipio;
@@ -30,10 +29,10 @@ public class Municipio implements Serializable {
 	// GETTERS AND SETTERS
 	
 	public Long getIdMunicipio() {
-		return idMunicipio;
+		return codigo;
 	}
 	public void setIdMunicipio(Long idMunicipio) {
-		this.idMunicipio = idMunicipio;
+		this.codigo = idMunicipio;
 	}
 	public String getNomeMunicipio() {
 		return NomeMunicipio;
@@ -56,7 +55,7 @@ public class Municipio implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (idMunicipio ^ (idMunicipio >>> 32));
+		result = prime * result + (int) (codigo ^ (codigo >>> 32));
 		return result;
 	}
 	@Override
@@ -68,7 +67,7 @@ public class Municipio implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Municipio other = (Municipio) obj;
-		if (idMunicipio != other.idMunicipio)
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}

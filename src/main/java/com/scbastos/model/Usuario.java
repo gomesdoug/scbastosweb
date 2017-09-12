@@ -29,16 +29,15 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_usuario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idUsuario;
+	private Long codigo;
 	
 	@Nome
 	@NotBlank(message = "Por favor, informe o nome do usuário.")
 	private String nome;
 	
 	@NotBlank(message = "Por favor, informe o telefone celular do usuário.")
-	private String telefone_celular;
+	private String telefone;
 	
 	@Email(message="E-mail inválido.")
 	@NotBlank(message = "Por favor, informe o email do usuário.")
@@ -55,10 +54,6 @@ public class Usuario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EnumStatusUsuario status_usuario;
 	
-	private boolean opcionista;
-	
-	private boolean corretor;
-	
 	private Date data_cadastro;
 	
 	
@@ -74,10 +69,10 @@ public class Usuario implements Serializable {
 	// GETTERS AND SETTERS ---------------------------------------
 	
 	public Long getIdUsuario() {
-		return idUsuario;
+		return codigo;
 	}
 	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
+		this.codigo = idUsuario;
 	}
 	public String getNome() {
 		return nome;
@@ -92,24 +87,6 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public boolean isCorretor() {
-		return corretor;
-	}
-	public void setCorretor(boolean corretor) {
-		this.corretor = corretor;
-	}
-	public Date getData_cadastro() {
-		return data_cadastro;
-	}
-	public void setData_cadastro(Date data_cadastro) {
-		this.data_cadastro = data_cadastro;
-	}
-	public boolean isOpcionista() {
-		return opcionista;
-	}
-	public void setOpcionista(boolean opcionista) {
-		this.opcionista = opcionista;
-	}
 	public String getCpf() {
 		return cpf;
 	}
@@ -124,10 +101,10 @@ public class Usuario implements Serializable {
 	}
 	
 	public String getTelefone_celular() {
-		return telefone_celular;
+		return telefone;
 	}
 	public void setTelefone_celular(String telefone_celular) {
-		this.telefone_celular = telefone_celular;
+		this.telefone = telefone_celular;
 	}
 	
 	public EnumStatusUsuario getStatus_usuario() {
@@ -143,7 +120,7 @@ public class Usuario implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 	@Override
@@ -155,10 +132,10 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (idUsuario == null) {
-			if (other.idUsuario != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!idUsuario.equals(other.idUsuario))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

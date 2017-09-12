@@ -18,13 +18,13 @@ public class Bairro implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Long id_bairro;
+	private Long codigo;
 	
 	@Column(name = "nome_bairro")
 	private String nomeBairro;
 	
 	@ManyToOne
-	@JoinColumn(name = "Municipio_id_Municipio")
+	@JoinColumn(name = "codigo_municipio")
 	private Municipio municipio;
 	
 	@OneToMany(mappedBy="bairro")
@@ -34,12 +34,12 @@ public class Bairro implements Serializable{
 	
 
 	public Long getId_bairro() {
-		return id_bairro;
+		return codigo;
 	}
 
 
 	public void setId_bairro(Long id_bairro) {
-		this.id_bairro = id_bairro;
+		this.codigo = id_bairro;
 	}
 
 
@@ -79,7 +79,7 @@ public class Bairro implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_bairro == null) ? 0 : id_bairro.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 	
@@ -93,10 +93,10 @@ public class Bairro implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Bairro other = (Bairro) obj;
-		if (id_bairro == null) {
-			if (other.id_bairro != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!id_bairro.equals(other.id_bairro))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

@@ -22,9 +22,8 @@ public class Valor implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_valor")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idValor;
+	private Long codigo;
 	
 	@NotNull(message = "Por favor, especifique o valor do imóvel")
 	@DecimalMin(value="0.00", message = "O valor do imóvel deve ser positivo")
@@ -53,11 +52,11 @@ public class Valor implements Serializable{
 	// GETTERS AND SETTERS
 	
 	public Long getIdValor() {
-		return idValor;
+		return codigo;
 	}
 
 	public void setIdValor(Long idValor) {
-		this.idValor = idValor;
+		this.codigo = idValor;
 	}
 
 	public BigDecimal getValorImovel() {
@@ -115,7 +114,7 @@ public class Valor implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idValor == null) ? 0 : idValor.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -128,10 +127,10 @@ public class Valor implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Valor other = (Valor) obj;
-		if (idValor == null) {
-			if (other.idValor != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!idValor.equals(other.idValor))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

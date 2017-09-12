@@ -36,7 +36,7 @@ public class Imovel implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_imovel;
+	private Long codigo;
 	
 	//@CodigoSC (VERIFICAR !!!)
 	@NotNull(message = "O código SC é obrigatório.")
@@ -69,19 +69,19 @@ public class Imovel implements Serializable{
 	private BigDecimal areaTotal;
 	
 	@ManyToOne
-	@JoinColumn(name = "Usuario_id_usuario")
+	@JoinColumn(name = "codigo_usuario")
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name ="Proprietario_id_proprietario")
+	@JoinColumn(name ="codigo_proprietario")
 	private Proprietario proprietario;
 	
 	@OneToOne
-	@JoinColumn (name ="Endereco_id_endereco")
+	@JoinColumn (name ="codigo_endereco")
 	private Endereco endereco;
 	
 	@OneToOne
-	@JoinColumn(name="valor_id_valor")
+	@JoinColumn(name="codigo_valor")
 	private Valor valor;
 	
 	//ENUMERATORS ----------------------
@@ -114,10 +114,10 @@ public class Imovel implements Serializable{
 	
 	
 	public Long getIdImovel() {
-		return id_imovel;
+		return codigo;
 	}
 	public void setIdImovel(Long idImovel) {
-		this.id_imovel = idImovel;
+		this.codigo = idImovel;
 	}
 	public Long getCodigosc() {
 		return codigosc;
@@ -261,7 +261,7 @@ public class Imovel implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_imovel == null) ? 0 : id_imovel.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 	@Override
@@ -273,10 +273,10 @@ public class Imovel implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Imovel other = (Imovel) obj;
-		if (id_imovel == null) {
-			if (other.id_imovel != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!id_imovel.equals(other.id_imovel))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

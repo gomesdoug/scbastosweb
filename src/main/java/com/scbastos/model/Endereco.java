@@ -24,7 +24,7 @@ public class Endereco implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_endereco;
+	private Long codigo;
 	
 	@NotBlank(message = "O logradouro é obrigatório")
 	private String logradouro;
@@ -40,16 +40,16 @@ public class Endereco implements Serializable{
 	private String numero;
 	
 	@ManyToOne
-	@JoinColumn(name = "bairro_id_bairro")
+	@JoinColumn(name = "codigo_bairro")
 	private Bairro bairro;
 	
 	// GETTERS AND SETTERS
 	
 	public Long getIdEndereco() {
-		return id_endereco;
+		return codigo;
 	}
 	public void setIdEndereco(Long idEndereco) {
-		this.id_endereco = idEndereco;
+		this.codigo = idEndereco;
 	}
 	public String getLogradouro() {
 		return logradouro;
@@ -88,7 +88,7 @@ public class Endereco implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_endereco == null) ? 0 : id_endereco.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 	
@@ -101,10 +101,10 @@ public class Endereco implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (id_endereco == null) {
-			if (other.id_endereco != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!id_endereco.equals(other.id_endereco))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

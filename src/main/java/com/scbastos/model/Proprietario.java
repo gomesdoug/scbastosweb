@@ -23,9 +23,8 @@ public class Proprietario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_proprietario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idProprietario;
+	private Long codigo;
 	
 	@Nome
 	@NotBlank(message = "Por favor, informe o nome do proprietário é obrigatório.")
@@ -47,11 +46,11 @@ public class Proprietario implements Serializable{
 	//GETTERS AND SETTERS -------------------------------------------------
 
 	public Long getIdProprietario() {
-		return idProprietario;
+		return codigo;
 	}
 
 	public void setIdProprietario(Long idProprietario) {
-		this.idProprietario = idProprietario;
+		this.codigo = idProprietario;
 	}
 
 	public String getNome() {
@@ -101,7 +100,7 @@ public class Proprietario implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idProprietario == null) ? 0 : idProprietario.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -114,10 +113,10 @@ public class Proprietario implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Proprietario other = (Proprietario) obj;
-		if (idProprietario == null) {
-			if (other.idProprietario != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!idProprietario.equals(other.idProprietario))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

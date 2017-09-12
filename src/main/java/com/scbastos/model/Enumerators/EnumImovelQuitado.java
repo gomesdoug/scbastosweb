@@ -2,8 +2,8 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumImovelQuitado {
 	
-	S("sim"),
-	N("não");
+	SIM("sim"),
+	NAO("não");
 	
 	private String imovel_quitacao;
 	

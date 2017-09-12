@@ -2,8 +2,8 @@ package com.scbastos.model.Enumerators;
 
 public enum EnumExclusividadeImovel {
 	
-	S("Exclusividade"),
-	N("Não");
+	SIM("Exclusividade"),
+	NAO("Não");
 	
 	private String imovel_exclusividade;
 	
