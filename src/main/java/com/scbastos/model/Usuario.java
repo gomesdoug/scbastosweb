@@ -2,6 +2,7 @@ package com.scbastos.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -60,12 +61,13 @@ public class Usuario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EnumStatusUsuario  status_usuario;
 	
-	@NotNull(message = "Selecione ao menos 1(um) grupo.")
+	//@NotNull(message = "Selecione ao menos 1(um) grupo.")
 	@ManyToMany
 	@JoinTable(name = "usuario_grupo",joinColumns=@JoinColumn(name="codigo_usuario"), inverseJoinColumns = @JoinColumn(name="codigo_grupo"))
 	private List<Grupo> grupos;
 	
-	private LocalDate data_cadastro;
+	@Transient
+	private LocalDateTime data_cadastro = LocalDateTime.now();
 	
 	private LocalDate data_nascimento;
 	
@@ -129,8 +131,6 @@ public class Usuario implements Serializable {
 		this.confirmaSenha = confirmaSenha;
 	}
 
-
-
 	public String getTelefone() {
 		return telefone;
 	}
@@ -147,11 +147,11 @@ public class Usuario implements Serializable {
 		this.status_usuario = status_usuario;
 	}
 
-	public LocalDate getData_cadastro() {
+	public LocalDateTime getData_cadastro() {
 		return data_cadastro;
 	}
 
-	public void setData_cadastro(LocalDate data_cadastro) {
+	public void setData_cadastro(LocalDateTime data_cadastro) {
 		this.data_cadastro = data_cadastro;
 	}
 
