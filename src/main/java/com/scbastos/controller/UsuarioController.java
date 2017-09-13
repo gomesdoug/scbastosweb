@@ -17,13 +17,14 @@ import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.service.CadastroUsuarioService;
 
 @Controller
+@RequestMapping("/usuario")
 public class UsuarioController {
 	
 	
 	@Autowired
 	CadastroUsuarioService cadastroUsuarioService;
 	
-	@RequestMapping("/usuario/novo")
+	@RequestMapping("/novo")
 	public ModelAndView novo(Usuario usuario) {
 		ModelAndView mv = new ModelAndView("usuario/CadastroUsuario");
 		
@@ -33,7 +34,7 @@ public class UsuarioController {
 		
 	}
 	
-	@RequestMapping(value = "/usuario/novo", method = RequestMethod.POST)
+	@RequestMapping(value = "/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult result, Model model, RedirectAttributes atributes){
 		
 		if(result.hasErrors()){

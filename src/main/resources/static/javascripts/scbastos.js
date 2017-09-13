@@ -70,7 +70,6 @@ return Mask;
 }());
 
 
-
 /*MASCARA PARA NUMEROS DE TELEFONE*/
 
 scbastosweb.MaskPhoneNumber = (function() {
@@ -97,6 +96,27 @@ scbastosweb.MaskPhoneNumber = (function() {
 	
 }());
 
+/* MASCARA PARA DATAS*/
+
+scbastosweb.MaskDate = (function() {
+	
+	function MaskDate() {
+		this.inputDate = $('.js-date');
+	}
+	
+	MaskDate.prototype.enable = function() {
+		this.inputDate.mask('00/00/0000');
+		this.inputDate.datepicker({
+			orientation: 'bottom',
+			language: 'pt-BR',
+			autoclose: true
+		});
+	}
+	
+	return MaskDate;
+	
+}());
+
 
 
 /*CHAMADA DAS FUNCOES*/
@@ -110,6 +130,9 @@ $(function() {
 	
 	var maskPhoneNumber = new scbastosweb.MaskPhoneNumber();
 		maskPhoneNumber.enable();
+		
+	var maskDate = new scbastosweb.MaskDate();
+		maskDate.enable();
 });
 
 
