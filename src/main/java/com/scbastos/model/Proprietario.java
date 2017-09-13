@@ -1,9 +1,7 @@
 package com.scbastos.model;
 
 import java.io.Serializable;
-import java.sql.Date;
-
-import javax.persistence.Column;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,7 +38,7 @@ public class Proprietario implements Serializable{
 	@NotBlank(message = "Por favor, informe o CPF do proprietario.")
 	private String cpf;
 	
-	private Date data_cadastro;
+	private LocalDateTime data_cadastro = LocalDateTime.now();
 	
 	
 	//GETTERS AND SETTERS -------------------------------------------------
@@ -85,11 +83,11 @@ public class Proprietario implements Serializable{
 		this.cpf = cpf;
 	}
 
-	public Date getData_cadastro() {
+	public LocalDateTime getData_cadastro() {
 		return data_cadastro;
 	}
 
-	public void setData_cadastro(Date data_cadastro) {
+	public void setData_cadastro(LocalDateTime data_cadastro) {
 		this.data_cadastro = data_cadastro;
 	}
 

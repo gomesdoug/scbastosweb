@@ -9,6 +9,10 @@
 	font-size: 18px;
 }
 
+.sc-required > .control-label:after {
+	content: "*";
+}
+
 
 /*
 ######################
@@ -23,5 +27,14 @@
 
 .sc-field-action-icon {
 	margin: 6px 0 0 5px;
+}
+
+
+/*CUSTOMIZAÇÃO DE COMPONENTES*/
+
+
+.checkbox input[type="checkbox"]:checked + input + label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c"; 
 }
 

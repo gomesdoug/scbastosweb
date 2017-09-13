@@ -5,6 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+import com.scbastos.exceptions.SenhaObrigatoriaUsuarioException;
 import com.scbastos.exceptions.UsuarioCpfExpetion;
 import com.scbastos.exceptions.UsuarioEmailExpetion;
 import com.scbastos.model.Usuario;
@@ -29,6 +32,11 @@ public class CadastroUsuarioService {
 		if(usuarioEmail.isPresent()){
 			 throw new UsuarioEmailExpetion("O E-mail informado já existe na base de dados.");
 		 }
+		
+		
+		if (usuario.isNovo() && StringUtils.isEmpty(usuario.getSenha())) {
+			throw new SenhaObrigatoriaUsuarioException("Senha é obrigatória para novo usuário");
+		}
 		
 		/*Optional<Usuario> usuarioTelefone = usuarios.findByTelefone(usuario.getTelefone_celular());
 		if(usuarioTelefone.isPresent()){

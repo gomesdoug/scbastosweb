@@ -3,6 +3,7 @@ package com.scbastos.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,7 +64,7 @@ public class Imovel implements Serializable{
 	private Date dataCaptacao;
 	
 	@Column(name="data_cadastro")
-	private Date dataCadastro;
+	private LocalDateTime dataCadastro = LocalDateTime.now();
 	
 	@Column(name="area_total")
 	private BigDecimal areaTotal;
@@ -180,10 +181,10 @@ public class Imovel implements Serializable{
 	public void setDataCaptacao(Date dataCaptacao) {
 		this.dataCaptacao = dataCaptacao;
 	}
-	public Date getDataCadastro() {
+	public LocalDateTime getDataCadastro() {
 		return dataCadastro;
 	}
-	public void setDataCadastro(Date dataCadastro) {
+	public void setDataCadastro(LocalDateTime dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 	public BigDecimal getAreaTotal() {

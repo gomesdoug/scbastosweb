@@ -18,6 +18,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
@@ -61,15 +63,22 @@ public class Usuario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EnumStatusUsuario  status_usuario;
 	
-	//@NotNull(message = "Selecione ao menos 1(um) grupo.")
+	@Size(min = 1, message = "Selecione ao menos 1(um) grupo.")
 	@ManyToMany
 	@JoinTable(name = "usuario_grupo",joinColumns=@JoinColumn(name="codigo_usuario"), inverseJoinColumns = @JoinColumn(name="codigo_grupo"))
 	private List<Grupo> grupos;
 	
-	@Transient
 	private LocalDateTime data_cadastro = LocalDateTime.now();
 	
 	private LocalDate data_nascimento;
+	
+	
+	// USUARIO NOVO -------
+	
+	public boolean isNovo(){
+		return codigo == null;
+		
+	}
 	
 	
 	//REMOVER FORMATO CPF PARA SALVA NO BANCO DE DADOS ----------

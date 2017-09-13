@@ -1,6 +1,7 @@
 package com.scbastos.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 //import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -42,6 +44,8 @@ public class Endereco implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "codigo_bairro")
 	private Bairro bairro;
+	
+	private LocalDateTime data_cadastro = LocalDateTime.now();;
 	
 	// GETTERS AND SETTERS
 	
@@ -83,7 +87,14 @@ public class Endereco implements Serializable{
 		this.complemento = complemento;
 	}
 	
-	// HASHCODE AND EQUALS
+	public LocalDateTime getData_cadastro() {
+		return data_cadastro;
+	}
+	public void setData_cadastro(LocalDateTime data_cadastro) {
+		this.data_cadastro = data_cadastro;
+	}
+	
+	// HASHCODE AND EQUALS ------------------------------------------------------------------
 	@Override
 	public int hashCode() {
 		final int prime = 31;
