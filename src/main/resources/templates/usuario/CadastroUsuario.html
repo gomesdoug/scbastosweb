@@ -67,7 +67,7 @@
 				
 				<div class="row">
 				
-					<div class= "col-sm-3 form-group" th:classappend="|${#fields.hasErrors('senha')} ? has-error ${usuario.isNovo()} ? sc-required|">
+					<div class= "col-sm-3 form-group" th:classappend="|${#fields.hasErrors('senha')} ? has-error ${usuario.novo} ? sc-required|">
 						<label for="senha" class="control-label">senha do usuário</label>
 						<input id="senha" type="password" class="form-control" th:field="*{senha}"></input>
 					</div>
