@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {})
-@Pattern(regexp = "([0-9]{1,5})?")
+@Pattern(regexp = "([0,9]{1,5})?")
 public @interface CodigoSC {
 	
 	@OverridesAttribute(constraint = Pattern.class, name = "message")

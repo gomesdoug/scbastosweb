@@ -11,12 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.web.context.annotation.SessionScope;
 
 @Entity
 @Table(name="endereco")

@@ -209,8 +209,8 @@
 				<div class="row"> <!-- Grava o IdUsuario na base de dados -->
 					<div class="col-lg-6  col-sm-6" th:classappend="${#fields.hasErrors('usuario')} ? has-error">
 						<label for="nomecorretor" class="control-label">Nome do corretor responsável</label>
-						<select id="nomecorretor" class="form-control" th:field="*{usuario}">
-							<option th:each="usuario : ${usuario}" th:value="${usuario.IdUsuario}" th:text="${usuario.getNome()}" class="form-control"></option>
+						<select id="nomecorretor" class="form-control" th:field="*{corretor}">
+							<option th:each="usuario : ${usuario}" th:value="${usuario.nome}" th:text="${usuario.getNome()}" class="form-control"></option>
 						</select>
 					</div>
 				</div>

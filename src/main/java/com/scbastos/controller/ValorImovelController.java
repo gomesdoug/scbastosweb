@@ -41,7 +41,7 @@ public class ValorImovelController {
 		// Salvar no banco de dados
 		cadastroValoresService.salvarValores(valor);
 		atributes.addFlashAttribute("mensagem", "Valores cadastrados com sucesso");
-		return new ModelAndView("redirect:/valores/novo");
+		return new ModelAndView("redirect:/imovel/novo");
 		
 	}
 

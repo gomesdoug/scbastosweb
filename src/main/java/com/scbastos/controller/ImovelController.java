@@ -86,9 +86,7 @@ public class ImovelController {
 			return novo(imovel);
 	}
 		
-		
 		atributes.addFlashAttribute("mensagem", "Imovel cadastrado com sucesso");
-		System.out.println(">>>> CodigoSC:" + imovel.getCodigosc());
 		return new ModelAndView("redirect:/imovel/novo");
 		
 	}

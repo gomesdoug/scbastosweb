@@ -40,7 +40,7 @@ public class Imovel implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	//@CodigoSC (VERIFICAR !!!)
+	//@CodigoSC
 	@NotNull(message = "O código SC é obrigatório.")
 	private Long codigosc;
 	
@@ -57,7 +57,7 @@ public class Imovel implements Serializable{
 	private String inscricaoImobiliaria;
 	
 	private String foto;
-	private String corretor;
+	
 	private String opcionista;
 	
 	//@NotBlank(message = "A data de captação é obrigatória.")
@@ -73,6 +73,8 @@ public class Imovel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "codigo_usuario")
 	private Usuario usuario;
+	
+	private String corretor;
 	
 	@ManyToOne
 	@JoinColumn(name ="codigo_proprietario")
@@ -163,6 +165,7 @@ public class Imovel implements Serializable{
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+	
 	public String getCorretor() {
 		return corretor;
 	}

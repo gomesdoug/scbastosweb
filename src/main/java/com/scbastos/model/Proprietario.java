@@ -6,14 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Version;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.scbastos.validation.Nome;
+
 
 @Entity
 @Table(name = "proprietario")
@@ -41,9 +42,13 @@ public class Proprietario implements Serializable{
 	
 	private LocalDateTime data_cadastro = LocalDateTime.now();
 	
-/*	@Version
-	private Integer versao;*/
 	
+	//REMOVER FORMATO CPF PARA SALVA NO BANCO DE DADOS ----------
+	
+	@PrePersist @PreUpdate
+	private void prePersistPreUpdate() {
+		this.cpf = this.cpf.replaceAll("\\.|-", "");
+	}
 	
 	//GETTERS AND SETTERS -------------------------------------------------
 

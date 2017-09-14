@@ -51,7 +51,7 @@ public class EnderecoController {
 		
 		cadastroEnderecoService.salvarImovel(endereco);
 		atributes.addFlashAttribute("mensagem", "Endereco cadastrado com sucesso");
-		return new ModelAndView("redirect:/endereco/novo");
+		return new ModelAndView("redirect:/valores/novo");
 		
 	}
 
