@@ -117,6 +117,21 @@ scbastosweb.MaskDate = (function() {
 	
 }());
 
+/*READONLY
+
+scbastosweb.ReadOnly = (function() {
+	
+	function ReadOnly() {
+		this.read = $('.js-read-only');
+	}
+	
+	ReadOnly.prototype.enable = function() {
+		this.read = document.getElementById("saldoDevedor").readOnly = true;
+	}
+	
+	return ReadOnly;
+	
+}());*/	
 
 
 /*CHAMADA DAS FUNCOES*/
@@ -133,6 +148,10 @@ $(function() {
 		
 	var maskDate = new scbastosweb.MaskDate();
 		maskDate.enable();
+		
+	/*var leitura = new scbastosweb.ReadOnly();
+		leitura.enable();*/
+		
 });
 
 
