@@ -37,7 +37,6 @@ public class ProprietarioController {
 		// Salvar no banco de dados
 		cadastroProprietarioService.salvarProprietario(proprietario);
 		atributes.addFlashAttribute("mensagem", "Proprietário cadastrado com sucesso");
-		System.out.println(">>>> cadastrar:" + proprietario.getNome());
 		return new ModelAndView("redirect:/endereco/novo");
 		
 	}

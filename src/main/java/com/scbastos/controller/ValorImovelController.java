@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.scbastos.model.Valor;
 import com.scbastos.model.Enumerators.EnumImovelQuitado;
 import com.scbastos.service.CadastroValoresService;
@@ -40,6 +41,7 @@ public class ValorImovelController {
 		
 		// Salvar no banco de dados
 		cadastroValoresService.salvarValores(valor);
+		atributes.addFlashAttribute(valor);
 		atributes.addFlashAttribute("mensagem", "Valores cadastrados com sucesso");
 		return new ModelAndView("redirect:/imovel/novo");
 		
