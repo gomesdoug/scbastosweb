@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +21,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.validation.AtributoSenha;
 import com.scbastos.validation.Nome;
 
@@ -58,9 +55,8 @@ public class Usuario implements Serializable {
 	@Transient
 	private String confirmaSenha;
 	
-	@NotNull(message = "Por favor, especifique o Status do usuário")
-	@Enumerated(EnumType.STRING)
-	private EnumStatusUsuario  status_usuario;
+	@NotNull(message = "Por favor, especifique o Status do usuário") // <----- ATENCAO !!!!
+	private Boolean ativo;
 	
 	@Size(min = 1, message = "Selecione ao menos 1(um) grupo.")
 	@ManyToMany
@@ -147,12 +143,12 @@ public class Usuario implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public EnumStatusUsuario getStatus_usuario() {
-		return status_usuario;
+	public Boolean getAtivo() {
+		return ativo;
 	}
 
-	public void setStatus_usuario(EnumStatusUsuario status_usuario) {
-		this.status_usuario = status_usuario;
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public LocalDateTime getData_cadastro() {

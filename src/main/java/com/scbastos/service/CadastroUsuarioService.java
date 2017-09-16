@@ -12,13 +12,13 @@ import com.scbastos.exceptions.SenhaObrigatoriaUsuarioException;
 import com.scbastos.exceptions.UsuarioCpfExpetion;
 import com.scbastos.exceptions.UsuarioEmailExpetion;
 import com.scbastos.model.Usuario;
-import com.scbastos.repository.UsuariosRepository;
+import com.scbastos.repository.Usuarios;
 
 @Service
 public class CadastroUsuarioService {
 	
 	@Autowired
-	private UsuariosRepository usuarios;
+	private Usuarios usuarios;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;

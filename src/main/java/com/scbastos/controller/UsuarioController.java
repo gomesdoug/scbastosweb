@@ -15,7 +15,6 @@ import com.scbastos.exceptions.SenhaObrigatoriaUsuarioException;
 import com.scbastos.exceptions.UsuarioCpfExpetion;
 import com.scbastos.exceptions.UsuarioEmailExpetion;
 import com.scbastos.model.Usuario;
-import com.scbastos.model.Enumerators.EnumStatusUsuario;
 import com.scbastos.repository.GruposRepository;
 import com.scbastos.service.CadastroUsuarioService;
 
@@ -33,8 +32,7 @@ public class UsuarioController {
 	@RequestMapping("/novo")
 	public ModelAndView novo(Usuario usuario) {
 		ModelAndView mv = new ModelAndView("usuario/CadastroUsuario");
-		
-		mv.addObject("EnumStatusUsuario", EnumStatusUsuario.values());
+		//mv.addObject("EnumStatusUsuario", EnumStatusUsuario.values()); <--- ATENCAO
 		mv.addObject("grupos", grupos.findAll());
 		
 		return mv;

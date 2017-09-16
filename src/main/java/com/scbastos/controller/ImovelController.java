@@ -22,7 +22,7 @@ import com.scbastos.model.Enumerators.EnumStatusImovel;
 import com.scbastos.model.Enumerators.EnumTipoImovel;
 import com.scbastos.repository.EnderecosRepository;
 import com.scbastos.repository.ProprietariosRepository;
-import com.scbastos.repository.UsuariosRepository;
+import com.scbastos.repository.Usuarios;
 import com.scbastos.repository.ValoresRepository;
 import com.scbastos.service.CadastroImovelService;
 
@@ -31,7 +31,7 @@ import com.scbastos.service.CadastroImovelService;
 public class ImovelController {
 	
 	@Autowired
-	private UsuariosRepository usuarios;
+	private Usuarios usuarios;
 	
 	@Autowired
 	private ProprietariosRepository proprietarios;
