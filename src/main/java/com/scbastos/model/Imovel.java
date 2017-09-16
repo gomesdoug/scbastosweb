@@ -58,6 +58,8 @@ public class Imovel implements Serializable{
 	
 	private String foto;
 	
+	private String content_type;
+	
 	private String opcionista;
 	
 	//@NotBlank(message = "A data de captação é obrigatória.")
@@ -76,6 +78,8 @@ public class Imovel implements Serializable{
 	
 	private String corretor;
 	
+	private String descricao;
+	
 	@ManyToOne
 	@JoinColumn(name ="codigo_proprietario")
 	private Proprietario proprietario;
@@ -85,7 +89,7 @@ public class Imovel implements Serializable{
 	private Endereco endereco;
 	
 	@OneToOne
-	@JoinColumn(name="codigo_valor")
+	@JoinColumn(name="codigo")
 	private Valor valor;
 	
 	//ENUMERATORS ----------------------
@@ -166,11 +170,24 @@ public class Imovel implements Serializable{
 		this.foto = foto;
 	}
 	
+	public String getContent_type() {
+		return content_type;
+	}
+	public void setContent_type(String content_type) {
+		this.content_type = content_type;
+	}
 	public String getCorretor() {
 		return corretor;
 	}
 	public void setCorretor(String corretor) {
 		this.corretor = corretor;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	public String getOpcionista() {
 		return opcionista;

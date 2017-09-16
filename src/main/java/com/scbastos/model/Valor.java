@@ -26,8 +26,8 @@ public class Valor implements Serializable{
 	
 	@NotNull(message = "Por favor, especifique o valor do imóvel")
 	@DecimalMin(value="0.00", message = "O valor do imóvel deve ser positivo")
-	@Column(name ="valor_imovel")
-	private BigDecimal valorImovel;
+	@Column(name ="valor_atual")
+	private BigDecimal valorAtual;
 	
 	@DecimalMin(value="0.00", message = "O valor do sinal deve ser positivo")
 	private BigDecimal sinal;
@@ -59,11 +59,11 @@ public class Valor implements Serializable{
 	}
 
 	public BigDecimal getValorImovel() {
-		return valorImovel;
+		return valorAtual;
 	}
 
 	public void setValorImovel(BigDecimal valorImovel) {
-		this.valorImovel = valorImovel;
+		this.valorAtual = valorImovel;
 	}
 
 	public BigDecimal getSinal() {
