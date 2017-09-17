@@ -7,9 +7,9 @@ import com.scbastos.model.Municipio;
 public class MunicipioConverter implements Converter<String, Municipio>{
 	
 	@Override
-	public Municipio convert(String idMunicipio) {
+	public Municipio convert(String codigo) {
 		Municipio municipio = new Municipio();
-		municipio.setIdMunicipio(Long.valueOf(idMunicipio));
+		municipio.setCodigo(Long.valueOf(codigo));
 		return municipio;
 	}
 

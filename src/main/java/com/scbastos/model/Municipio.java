@@ -28,11 +28,11 @@ public class Municipio implements Serializable {
 	
 	// GETTERS AND SETTERS
 	
-	public Long getIdMunicipio() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setIdMunicipio(Long idMunicipio) {
-		this.codigo = idMunicipio;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 	public String getNomeMunicipio() {
 		return NomeMunicipio;
@@ -47,7 +47,6 @@ public class Municipio implements Serializable {
 		this.bairro = bairro;
 	}
 	
-	
 	//HASHCODE AND EQUALS
 	
 	
@@ -58,6 +57,7 @@ public class Municipio implements Serializable {
 		result = prime * result + (int) (codigo ^ (codigo >>> 32));
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

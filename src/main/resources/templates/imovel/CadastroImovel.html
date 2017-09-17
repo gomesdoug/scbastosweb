@@ -35,45 +35,6 @@
 			
 				<th:block th:include="fragments/MensagemSucesso"></th:block> 		<!-- Mensagem de sucesso -->
 				<th:block th:include="fragments/MensagensErroValidacao"></th:block> <!-- Mensagem de validacao -->
-			
-<!-- 			<div  class="well well-small">			 -->
-<!-- 				<div class="row"> -->
-<!-- 					<div class= "col-sm-6 form-group"> -->
-<!-- 						<label for="proprietario">Proprietário</label> -->
-<!-- 						<div class="sc-field-action"> -->
-<!-- 							<select id="proprietario" class="form-control"> -->
-<!-- 								<option value="">Selecione o proprietario</option> -->
-<!-- 							</select> -->
-							
-<!-- 							<div class="sc-field-action-icon"> -->
-<!-- 								<a href="#" data-toggle="modal" data-target="#modalProprietario"> -->
-<!-- 									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i> -->
-<!-- 								</a> -->
-<!-- 							</div> -->
-							
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-			
-				
-<!-- 				<div class="row">	 -->
-<!-- 					<div class= "col-sm-6 form-group"> -->
-<!-- 						<label for="Endereco">Endereco do imóvel</label> -->
-<!-- 						<div class="sc-field-action"> -->
-<!-- 							<select id="endereco" class="form-control"> -->
-<!-- 								<option value="">Selecione o endereço</option> -->
-<!-- 							</select> -->
-							
-<!-- 							<div class="sc-field-action-icon"> -->
-<!-- 								<a href="#" data-toggle="modal" data-target="#modalEndereco"> -->
-<!-- 									<i class="glyphicon  glyphicon-plus-sign  sc-glyphicon-large"></i> -->
-<!-- 								</a> -->
-<!-- 							</div> -->
-							
-<!-- 						</div>	 -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
 		
 			<h4>Atributos do imóvel</h4>
 		
@@ -234,6 +195,59 @@
 					</div>
 			</div>
 					
+			</div>
+			
+			<!-- ENDEREÇO -->
+			
+			<div  class="well well-small">
+				
+				<div class="row">
+									
+					<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('endereco.logradouro')} ? has-error">
+						<label for="logradouro" class="control-label">Logradouro</label>
+						<input id="logradouro" type="text" class="form-control" th:field="*{endereco.logradouro}"/>
+					</div>
+				</div>
+				
+				<div class="row">
+									
+					<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('endereco.complemento')} ? has-error">
+						<label for="complemento" class="control-label">Complemento</label>
+						<input id="complemento" type="text" class="form-control" th:field="*{endereco.complemento}"/>
+					</div>
+				</div>
+	
+				<div class="row">
+				
+					<div class= "col-sm-3 form-group" th:classappend="${#fields.hasErrors('endereco.numero')} ? has-error">
+						<label for="numeroImovel" class="control-label">Número do imóvel</label>
+						<input id="numeroImovel" type="text" class="form-control js-inteiro " th:field="*{endereco.numero}"></input>
+					</div>
+					
+					<div class= "col-sm-3 form-group" th:classappend="${#fields.hasErrors('endereco.cep')} ? has-error">
+						<label for="cep" class="control-label">CEP</label>
+						<input id="cep" type="text" class="form-control jsmask-cep" th:field="*{endereco.cep}"></input>
+					</div>
+					
+				</div>	
+					
+				<div class="row">	
+					<div class= "col-sm-3 form-group">
+						<label for="bairro">Bairro</label>
+						<select id="bairro" class="form-control" th:field="*{endereco.bairro}">
+							<option th:each="bairro : ${bairros}" th:value="${bairro.codigo}" th:text="${bairro.nomeBairro}" class="form-control"></option>
+						</select>
+					</div>
+					
+					<div class= "col-sm-3 form-group">
+						<label for="municipio">Município</label>
+						<select id="municipio" class="form-control" th:field="*{endereco.bairro.municipio}">
+							<option th:each="municipio : ${municipios}" th:value="${municipio.codigo}" th:text="${municipio.nomeMunicipio}" class="form-control"></option>
+						</select>
+					</div>
+					
+				</div>
+				
 			</div>	
 			
 				<div class="form-group">

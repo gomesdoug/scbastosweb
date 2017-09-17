@@ -35,7 +35,9 @@ public class ProprietarioController {
 		}
 		
 		// Salvar no banco de dados
-		cadastroProprietarioService.salvarProprietario(proprietario);
+		Proprietario proprietarioRedirect = cadastroProprietarioService.salvarProprietario(proprietario);
+		
+		atributes.addFlashAttribute("proprietarioRedirect", proprietarioRedirect);
 		atributes.addFlashAttribute("mensagem", "Proprietário cadastrado com sucesso");
 		return new ModelAndView("redirect:/endereco/novo");
 		

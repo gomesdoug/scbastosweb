@@ -8,10 +8,10 @@ import com.scbastos.model.Bairro;
 public class BairroConverter implements Converter<String, Bairro> {
 
 	@Override
-	public Bairro convert(String id_bairro) {
-		if(!StringUtils.isEmpty(id_bairro)){
+	public Bairro convert(String codigo) {
+		if(!StringUtils.isEmpty(codigo)){
 			Bairro bairro = new Bairro();
-			bairro.setId_bairro(Long.valueOf(id_bairro));
+			bairro.setCodigo(Long.valueOf(codigo));
 			return bairro;
 		}
 		

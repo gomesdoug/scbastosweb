@@ -14,8 +14,8 @@ public class CadastroProprietarioService {
 	private ProprietariosRepository proprietarios;
 	
 	@Transactional
-	public void salvarProprietario(Proprietario proprietario){
-		proprietarios.save(proprietario);
+	public Proprietario salvarProprietario(Proprietario proprietario){
+		return proprietarios.save(proprietario);
 
 	}
 }

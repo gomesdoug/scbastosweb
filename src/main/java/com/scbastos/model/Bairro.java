@@ -32,14 +32,13 @@ public class Bairro implements Serializable{
 
 	//GETTERS AND SETTERS
 	
-
-	public Long getId_bairro() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
 
-	public void setId_bairro(Long id_bairro) {
-		this.codigo = id_bairro;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 
@@ -72,7 +71,6 @@ public class Bairro implements Serializable{
 		this.endereco = endereco;
 	}
 
-
 	//HASHCODE AND EQUALS
 	
 	@Override
@@ -82,8 +80,7 @@ public class Bairro implements Serializable{
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
