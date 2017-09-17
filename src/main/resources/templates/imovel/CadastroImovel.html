@@ -224,6 +224,7 @@
 					
 						<input type="hidden" th:field="*{foto}">
 						<input type="hidden" th:field="*{contentType}">
+						
 						<label class="control-label">Foto do imóvel</label>
 						<div id="upload-drop" class="sc-upload">
 							<i class="glyphicon  glyphicon-cloud-upload"></i>
@@ -257,7 +258,7 @@
 						type: 'json',
 						filelimit: 1,
 						allow: '*.(jpg|jpeg|png)',
-						action: '/brewer/fotos',
+						action: '/scbastosweb/fotos',
 						complete: function(resposta) {
 							$('input[name=foto]').val(resposta.nome);
 							$('input[name=contentType]').val(resposta.contentType);

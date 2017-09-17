@@ -58,7 +58,8 @@ public class Imovel implements Serializable{
 	
 	private String foto;
 	
-	private String content_type;
+	@Column(name="content_type")
+	private String contentType;
 	
 	private String opcionista;
 	
@@ -121,11 +122,14 @@ public class Imovel implements Serializable{
 	//GETTERS AND SETTERS ----------------------
 	
 	
-	public Long getIdImovel() {
+	public String getContentType() {
+		return contentType;
+	}
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setIdImovel(Long idImovel) {
-		this.codigo = idImovel;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 	public Long getCodigosc() {
 		return codigosc;
@@ -135,12 +139,6 @@ public class Imovel implements Serializable{
 	}
 	public int getGaragem() {
 		return garagem;
-	}
-	public EnumStatusImovel getStatus_imovel() {
-		return status_imovel;
-	}
-	public void setStatus_imovel(EnumStatusImovel status_imovel) {
-		this.status_imovel = status_imovel;
 	}
 	public void setGaragem(int garagem) {
 		this.garagem = garagem;
@@ -169,33 +167,12 @@ public class Imovel implements Serializable{
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
-	public String getContent_type() {
-		return content_type;
-	}
-	public void setContent_type(String content_type) {
-		this.content_type = content_type;
-	}
-	public String getCorretor() {
-		return corretor;
-	}
-	public void setCorretor(String corretor) {
-		this.corretor = corretor;
-	}
-	
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 	public String getOpcionista() {
 		return opcionista;
 	}
 	public void setOpcionista(String opcionista) {
 		this.opcionista = opcionista;
 	}
-	
 	public Date getDataCaptacao() {
 		return dataCaptacao;
 	}
@@ -219,6 +196,18 @@ public class Imovel implements Serializable{
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public String getCorretor() {
+		return corretor;
+	}
+	public void setCorretor(String corretor) {
+		this.corretor = corretor;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	public Proprietario getProprietario() {
 		return proprietario;
@@ -268,14 +257,22 @@ public class Imovel implements Serializable{
 	public void setSituacao(EnumSituacao situacao) {
 		this.situacao = situacao;
 	}
-	
-	
+	public EnumStatusImovel getStatus_imovel() {
+		return status_imovel;
+	}
+	public void setStatus_imovel(EnumStatusImovel status_imovel) {
+		this.status_imovel = status_imovel;
+	}
 	public EnumExclusividadeImovel getExclusividade_imovel() {
 		return exclusividade_imovel;
 	}
 	public void setExclusividade_imovel(EnumExclusividadeImovel exclusividade_imovel) {
 		this.exclusividade_imovel = exclusividade_imovel;
 	}
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+	
 	
 	//HASHCODE AND EQUALS ----------------------
 	
